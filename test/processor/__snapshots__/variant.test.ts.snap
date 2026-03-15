@@ -1,0 +1,636 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Variants > directions > css 1`] = `
+"[dir='ltr'] .ltr\\:text-lg, [dir='ltr'].ltr\\:text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+[dir='rtl'] .dark .rtl\\:dark\\:text-sm, [dir='rtl'].dark .rtl\\:dark\\:text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}"
+`;
+
+exports[`Variants > generate screens > screens 1`] = `
+[
+  "print",
+  "narrow",
+  "sm",
+  "<sm",
+  "@sm",
+  "-sm",
+  "+sm",
+  "lg",
+  "<lg",
+  "@lg",
+  "-lg",
+  "+lg",
+]
+`;
+
+exports[`Variants > generate screens > vars 1`] = `
+{
+  "+lg": "@media (min-width: 1024px) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "+sm": "@media (min-width: 640px) and (max-width: 1024px) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "-lg": "@media (max-width: 1024px) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "-sm": "@media (max-width: 640px) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "<lg": "@media (max-width: 1023.9px) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "<sm": "@media (max-width: 639.9px) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "@lg": "@media (min-width: 1024px) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "@sm": "@media (min-width: 640px) and (max-width: 1023.9px) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "lg": "@media (min-width: 1024px) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "narrow": "@media (max-width: 768px) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "print": "@media print {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "sm": "@media (min-width: 640px) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+}
+`;
+
+exports[`Variants > generate states > all 1`] = `
+{
+  "active": ".test:active {
+  background: #1C1C1E;
+}",
+  "after": ".test::after {
+  background: #1C1C1E;
+}",
+  "all": ".test * {
+  background: #1C1C1E;
+}",
+  "before": ".test::before {
+  background: #1C1C1E;
+}",
+  "checked": ".test:checked {
+  background: #1C1C1E;
+}",
+  "children": ".test > * {
+  background: #1C1C1E;
+}",
+  "default": ".test:default {
+  background: #1C1C1E;
+}",
+  "disabled": ".test:disabled {
+  background: #1C1C1E;
+}",
+  "empty": ".test:empty {
+  background: #1C1C1E;
+}",
+  "enabled": ".test:enabled {
+  background: #1C1C1E;
+}",
+  "even": ".test:nth-child(even) {
+  background: #1C1C1E;
+}",
+  "even-of-type": ".test:nth-of-type(even) {
+  background: #1C1C1E;
+}",
+  "file": ".test::file-selector-button {
+  background: #1C1C1E;
+}",
+  "file-selector-button": ".test::file-selector-button {
+  background: #1C1C1E;
+}",
+  "first": ".test:first-child {
+  background: #1C1C1E;
+}",
+  "first-letter": ".test::first-letter {
+  background: #1C1C1E;
+}",
+  "first-line": ".test::first-line {
+  background: #1C1C1E;
+}",
+  "first-of-type": ".test:first-of-type {
+  background: #1C1C1E;
+}",
+  "focus": ".test:focus {
+  background: #1C1C1E;
+}",
+  "focus-visible": ".test:focus-visible {
+  background: #1C1C1E;
+}",
+  "focus-within": ".test:focus-within {
+  background: #1C1C1E;
+}",
+  "group-active": ".group:active .test {
+  background: #1C1C1E;
+}",
+  "group-checked": ".group:checked .test {
+  background: #1C1C1E;
+}",
+  "group-default": ".group:default .test {
+  background: #1C1C1E;
+}",
+  "group-disabled": ".group:disabled .test {
+  background: #1C1C1E;
+}",
+  "group-empty": ".group:empty .test {
+  background: #1C1C1E;
+}",
+  "group-enabled": ".group:enabled .test {
+  background: #1C1C1E;
+}",
+  "group-first-of-type": ".group:first-of-type .test {
+  background: #1C1C1E;
+}",
+  "group-focus": ".group:focus .test {
+  background: #1C1C1E;
+}",
+  "group-focus-visible": ".group:focus-visible .test {
+  background: #1C1C1E;
+}",
+  "group-focus-within": ".group:focus-within .test {
+  background: #1C1C1E;
+}",
+  "group-hover": ".group:hover .test {
+  background: #1C1C1E;
+}",
+  "group-indeterminate": ".group:indeterminate .test {
+  background: #1C1C1E;
+}",
+  "group-invalid": ".group:invalid .test {
+  background: #1C1C1E;
+}",
+  "group-last-of-type": ".group:last-of-type .test {
+  background: #1C1C1E;
+}",
+  "group-link": ".group:link .test {
+  background: #1C1C1E;
+}",
+  "group-only-child": ".group:only-child .test {
+  background: #1C1C1E;
+}",
+  "group-only-of-type": ".group:only-of-type .test {
+  background: #1C1C1E;
+}",
+  "group-optional": ".group:optional .test {
+  background: #1C1C1E;
+}",
+  "group-placeholder-shown": ".group:placeholder-shown .test {
+  background: #1C1C1E;
+}",
+  "group-read-only": ".group:read-only .test {
+  background: #1C1C1E;
+}",
+  "group-read-write": ".group:read-write .test {
+  background: #1C1C1E;
+}",
+  "group-required": ".group:required .test {
+  background: #1C1C1E;
+}",
+  "group-root": ".group:root .test {
+  background: #1C1C1E;
+}",
+  "group-target": ".group:target .test {
+  background: #1C1C1E;
+}",
+  "group-valid": ".group:valid .test {
+  background: #1C1C1E;
+}",
+  "group-visited": ".group:visited .test {
+  background: #1C1C1E;
+}",
+  "hover": ".test:hover {
+  background: #1C1C1E;
+}",
+  "indeterminate": ".test:indeterminate {
+  background: #1C1C1E;
+}",
+  "invalid": ".test:invalid {
+  background: #1C1C1E;
+}",
+  "last": ".test:last-child {
+  background: #1C1C1E;
+}",
+  "last-of-type": ".test:last-of-type {
+  background: #1C1C1E;
+}",
+  "link": ".test:link {
+  background: #1C1C1E;
+}",
+  "ltr": "[dir='ltr'] .test, [dir='ltr'].test {
+  background: #1C1C1E;
+}",
+  "marker": ".test *::marker, .test::marker {
+  background: #1C1C1E;
+}",
+  "motion-reduce": "@media (prefers-reduced-motion: reduce) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "motion-safe": "@media (prefers-reduced-motion: no-preference) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "not-checked": ".test:not(:checked) {
+  background: #1C1C1E;
+}",
+  "not-disabled": ".test:not(:disabled) {
+  background: #1C1C1E;
+}",
+  "not-first": ".test:not(:first-child) {
+  background: #1C1C1E;
+}",
+  "not-first-of-type": ".test:not(:first-of-type) {
+  background: #1C1C1E;
+}",
+  "not-last": ".test:not(:last-child) {
+  background: #1C1C1E;
+}",
+  "not-last-of-type": ".test:not(:last-of-type) {
+  background: #1C1C1E;
+}",
+  "not-only-child": ".test:not(:only-child) {
+  background: #1C1C1E;
+}",
+  "not-only-of-type": ".test:not(:only-of-type) {
+  background: #1C1C1E;
+}",
+  "odd": ".test:nth-child(odd) {
+  background: #1C1C1E;
+}",
+  "odd-of-type": ".test:nth-of-type(odd) {
+  background: #1C1C1E;
+}",
+  "only-child": ".test:only-child {
+  background: #1C1C1E;
+}",
+  "only-of-type": ".test:only-of-type {
+  background: #1C1C1E;
+}",
+  "optional": ".test:optional {
+  background: #1C1C1E;
+}",
+  "peer-active": ".peer:active ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-checked": ".peer:checked ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-default": ".peer:default ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-disabled": ".peer:disabled ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-empty": ".peer:empty ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-enabled": ".peer:enabled ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-first-of-type": ".peer:first-of-type ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-focus": ".peer:focus ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-focus-visible": ".peer:focus-visible ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-focus-within": ".peer:focus-within ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-hover": ".peer:hover ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-indeterminate": ".peer:indeterminate ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-invalid": ".peer:invalid ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-last-of-type": ".peer:last-of-type ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-link": ".peer:link ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-active": ".peer:not(:active) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-checked": ".peer:not(:checked) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-default": ".peer:not(:default) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-disabled": ".peer:not(:disabled) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-empty": ".peer:not(:empty) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-enabled": ".peer:not(:enabled) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-first-of-type": ".peer:not(:first-of-type) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-focus": ".peer:not(:focus) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-focus-visible": ".peer:not(:focus-visible) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-focus-within": ".peer:not(:focus-within) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-hover": ".peer:not(:hover) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-indeterminate": ".peer:not(:indeterminate) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-invalid": ".peer:not(:invalid) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-last-of-type": ".peer:not(:last-of-type) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-link": ".peer:not(:link) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-only-child": ".peer:not(:only-child) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-only-of-type": ".peer:not(:only-of-type) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-optional": ".peer:not(:optional) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-placeholder-shown": ".peer:not(:placeholder-shown) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-read-only": ".peer:not(:read-only) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-read-write": ".peer:not(:read-write) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-required": ".peer:not(:required) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-root": ".peer:not(:root) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-target": ".peer:not(:target) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-valid": ".peer:not(:valid) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-not-visited": ".peer:not(:visited) ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-only-child": ".peer:only-child ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-only-of-type": ".peer:only-of-type ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-optional": ".peer:optional ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-placeholder-shown": ".peer:placeholder-shown ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-read-only": ".peer:read-only ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-read-write": ".peer:read-write ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-required": ".peer:required ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-root": ".peer:root ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-target": ".peer:target ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-valid": ".peer:valid ~ .test {
+  background: #1C1C1E;
+}",
+  "peer-visited": ".peer:visited ~ .test {
+  background: #1C1C1E;
+}",
+  "placeholder-shown": ".test:placeholder-shown {
+  background: #1C1C1E;
+}",
+  "read-only": ".test:read-only {
+  background: #1C1C1E;
+}",
+  "read-write": ".test:read-write {
+  background: #1C1C1E;
+}",
+  "required": ".test:required {
+  background: #1C1C1E;
+}",
+  "root": ".test:root {
+  background: #1C1C1E;
+}",
+  "rtl": "[dir='rtl'] .test, [dir='rtl'].test {
+  background: #1C1C1E;
+}",
+  "selection": ".test *::selection, .test::selection {
+  background: #1C1C1E;
+}",
+  "sibling": ".test + * {
+  background: #1C1C1E;
+}",
+  "siblings": ".test ~ * {
+  background: #1C1C1E;
+}",
+  "svg": ".test svg {
+  background: #1C1C1E;
+}",
+  "target": ".test:target {
+  background: #1C1C1E;
+}",
+  "valid": ".test:valid {
+  background: #1C1C1E;
+}",
+  "visited": ".test:visited {
+  background: #1C1C1E;
+}",
+}
+`;
+
+exports[`Variants > generate states > some 1`] = `
+{
+  "before": ".test::before {
+  background: #1C1C1E;
+}",
+  "focus": ".test:focus {
+  background: #1C1C1E;
+}",
+  "group-hover": ".group:hover .test {
+  background: #1C1C1E;
+}",
+  "hover": ".test:hover {
+  background: #1C1C1E;
+}",
+  "motion-safe": "@media (prefers-reduced-motion: no-preference) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "svg": ".test svg {
+  background: #1C1C1E;
+}",
+}
+`;
+
+exports[`Variants > generate themes with darkMode class > vars 1`] = `
+{
+  ".dark": ".dark .test {
+  background: #1C1C1E;
+}",
+  ".light": ".light .test {
+  background: #1C1C1E;
+}",
+  "@dark": "@media (prefers-color-scheme: dark) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "@light": "@media (prefers-color-scheme: light) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "dark": ".dark .test {
+  background: #1C1C1E;
+}",
+  "light": ".light .test {
+  background: #1C1C1E;
+}",
+}
+`;
+
+exports[`Variants > generate themes with darkMode media > vars 1`] = `
+{
+  ".dark": ".dark .test {
+  background: #1C1C1E;
+}",
+  ".light": ".light .test {
+  background: #1C1C1E;
+}",
+  "@dark": "@media (prefers-color-scheme: dark) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "@light": "@media (prefers-color-scheme: light) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "dark": "@media (prefers-color-scheme: dark) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "light": "@media (prefers-color-scheme: light) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+}
+`;
+
+exports[`Variants > orientation > css 1`] = `
+{
+  "landscape": "@media (orientation: landscape) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+  "portrait": "@media (orientation: portrait) {
+  .test {
+    background: #1C1C1E;
+  }
+}",
+}
+`;
+
+exports[`Variants > resolve variants > screen 1`] = `
+[
+  "sm",
+  "<sm",
+  "@sm",
+  "-sm",
+  "+sm",
+  "md",
+  "<md",
+  "@md",
+  "-md",
+  "+md",
+  "lg",
+  "<lg",
+  "@lg",
+  "-lg",
+  "+lg",
+  "xl",
+  "<xl",
+  "@xl",
+  "-xl",
+  "+xl",
+  "2xl",
+  "<2xl",
+  "@2xl",
+  "-2xl",
+  "+2xl",
+]
+`;

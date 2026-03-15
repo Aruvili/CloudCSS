@@ -1,0 +1,1657 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Parser > simple syntax > ast 1`] = `
+Program {
+  "block": Block {
+    "statement_list": [
+      Import {
+        "urls": [
+          "typo.css",
+          "style.css",
+          "test.windi",
+        ],
+      },
+      Load {
+        "modules": [
+          {
+            "url": "module1",
+          },
+          {
+            "url": "module2",
+          },
+          {
+            "url": "module3",
+          },
+        ],
+      },
+      Load {
+        "modules": [
+          {
+            "exports": {
+              "export1": "export1",
+            },
+            "url": "module-name",
+          },
+        ],
+      },
+      Load {
+        "modules": [
+          {
+            "exports": {
+              "export1": "export1",
+              "export2": "export2",
+            },
+            "url": "module-name",
+          },
+        ],
+      },
+      Load {
+        "modules": [
+          {
+            "exports": {
+              "alias2": "export2",
+              "alias3": "export3",
+              "export1": "export1",
+            },
+            "url": "module-name",
+          },
+        ],
+      },
+      Load {
+        "modules": [
+          {
+            "exports": {
+              "*": "*",
+            },
+            "url": "module",
+          },
+        ],
+      },
+      Load {
+        "modules": [
+          {
+            "exports": {
+              "name": "*",
+            },
+            "url": "module",
+          },
+        ],
+      },
+      Load {
+        "modules": [
+          {
+            "default": "defaultExport",
+            "url": "module",
+          },
+        ],
+      },
+      Load {
+        "modules": [
+          {
+            "default": "defaultExport",
+            "exports": {
+              "export1": "export1",
+              "export2": "export2",
+            },
+            "url": "module-name",
+          },
+        ],
+      },
+      Load {
+        "modules": [
+          {
+            "default": "defaultExport",
+            "exports": {
+              "name": "*",
+            },
+            "url": "module-name",
+          },
+        ],
+      },
+      Func {
+        "async": false,
+        "block": Block {
+          "statement_list": [
+            Assign {
+              "left": Var {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "ID",
+                  "value": "f",
+                },
+                "value": "f",
+              },
+              "op": Token {
+                "meta": undefined,
+                "type": "=",
+                "value": "=",
+              },
+              "right": Num {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "NUMBER",
+                  "value": 3,
+                },
+                "value": 3,
+              },
+            },
+            Func {
+              "async": false,
+              "block": Block {
+                "statement_list": [
+                  Return {
+                    "value": BinOp {
+                      "left": Var {
+                        "token": Token {
+                          "meta": undefined,
+                          "type": "ID",
+                          "value": "c",
+                        },
+                        "value": "c",
+                      },
+                      "op": Token {
+                        "meta": undefined,
+                        "type": "*",
+                        "value": "*",
+                      },
+                      "right": Var {
+                        "token": Token {
+                          "meta": undefined,
+                          "type": "ID",
+                          "value": "d",
+                        },
+                        "value": "d",
+                      },
+                    },
+                  },
+                  NoOp {},
+                ],
+                "style_list": [
+                  NoOp {},
+                ],
+              },
+              "name": "nest",
+              "params": [
+                "c",
+                "d",
+              ],
+            },
+            Return {
+              "value": BinOp {
+                "left": BinOp {
+                  "left": Var {
+                    "token": Token {
+                      "meta": undefined,
+                      "type": "ID",
+                      "value": "a",
+                    },
+                    "value": "a",
+                  },
+                  "op": Token {
+                    "meta": undefined,
+                    "type": "+",
+                    "value": "+",
+                  },
+                  "right": BinOp {
+                    "left": Var {
+                      "token": Token {
+                        "meta": undefined,
+                        "type": "ID",
+                        "value": "b",
+                      },
+                      "value": "b",
+                    },
+                    "op": Token {
+                      "meta": undefined,
+                      "type": "/",
+                      "value": "/",
+                    },
+                    "right": Var {
+                      "token": Token {
+                        "meta": undefined,
+                        "type": "ID",
+                        "value": "f",
+                      },
+                      "value": "f",
+                    },
+                  },
+                },
+                "op": Token {
+                  "meta": undefined,
+                  "type": "-",
+                  "value": "-",
+                },
+                "right": BinOp {
+                  "left": Var {
+                    "token": Token {
+                      "meta": undefined,
+                      "type": "ID",
+                      "value": "nest",
+                    },
+                    "value": "nest",
+                  },
+                  "op": Token {
+                    "meta": undefined,
+                    "type": "(",
+                    "value": "(",
+                  },
+                  "right": Params {
+                    "values": [
+                      Var {
+                        "token": Token {
+                          "meta": undefined,
+                          "type": "ID",
+                          "value": "a",
+                        },
+                        "value": "a",
+                      },
+                      Var {
+                        "token": Token {
+                          "meta": undefined,
+                          "type": "ID",
+                          "value": "b",
+                        },
+                        "value": "b",
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+            NoOp {},
+          ],
+          "style_list": [
+            NoOp {},
+          ],
+        },
+        "name": "func",
+        "params": [
+          "a",
+          "b",
+        ],
+      },
+      Lambda {
+        "async": false,
+        "expr": BinOp {
+          "left": Var {
+            "token": Token {
+              "meta": undefined,
+              "type": "ID",
+              "value": "a",
+            },
+            "value": "a",
+          },
+          "op": Token {
+            "meta": undefined,
+            "type": "+",
+            "value": "+",
+          },
+          "right": Var {
+            "token": Token {
+              "meta": undefined,
+              "type": "ID",
+              "value": "b",
+            },
+            "value": "b",
+          },
+        },
+        "name": "add",
+        "params": [
+          "a",
+          "b",
+        ],
+      },
+      Lambda {
+        "async": false,
+        "expr": BinOp {
+          "left": Var {
+            "token": Token {
+              "meta": undefined,
+              "type": "ID",
+              "value": "a",
+            },
+            "value": "a",
+          },
+          "op": Token {
+            "meta": undefined,
+            "type": "+",
+            "value": "+",
+          },
+          "right": Var {
+            "token": Token {
+              "meta": undefined,
+              "type": "ID",
+              "value": "b",
+            },
+            "value": "b",
+          },
+        },
+        "name": undefined,
+        "params": [
+          "a",
+          "b",
+        ],
+      },
+      Func {
+        "async": false,
+        "block": Block {
+          "statement_list": [
+            Return {
+              "value": BinOp {
+                "left": Var {
+                  "token": Token {
+                    "meta": undefined,
+                    "type": "ID",
+                    "value": "a",
+                  },
+                  "value": "a",
+                },
+                "op": Token {
+                  "meta": undefined,
+                  "type": "+",
+                  "value": "+",
+                },
+                "right": Var {
+                  "token": Token {
+                    "meta": undefined,
+                    "type": "ID",
+                    "value": "b",
+                  },
+                  "value": "b",
+                },
+              },
+            },
+            NoOp {},
+          ],
+          "style_list": [
+            NoOp {},
+          ],
+        },
+        "name": undefined,
+        "params": [
+          "a",
+          "b",
+        ],
+      },
+      Func {
+        "async": false,
+        "block": Block {
+          "statement_list": [
+            Return {
+              "value": BinOp {
+                "left": Var {
+                  "token": Token {
+                    "meta": undefined,
+                    "type": "ID",
+                    "value": "x",
+                  },
+                  "value": "x",
+                },
+                "op": Token {
+                  "meta": undefined,
+                  "type": "+",
+                  "value": "+",
+                },
+                "right": Num {
+                  "token": Token {
+                    "meta": undefined,
+                    "type": "NUMBER",
+                    "value": 2,
+                  },
+                  "value": 2,
+                },
+              },
+            },
+            NoOp {},
+          ],
+          "style_list": [
+            NoOp {},
+          ],
+        },
+        "name": undefined,
+        "params": [
+          "x",
+        ],
+      },
+      Assign {
+        "left": Var {
+          "token": Token {
+            "meta": undefined,
+            "type": "ID",
+            "value": "number",
+          },
+          "value": "number",
+        },
+        "op": Token {
+          "meta": undefined,
+          "type": "=",
+          "value": "=",
+        },
+        "right": Num {
+          "token": Token {
+            "meta": undefined,
+            "type": "NUMBER",
+            "value": 2,
+          },
+          "value": 2,
+        },
+      },
+      Assign {
+        "left": Var {
+          "token": Token {
+            "meta": undefined,
+            "type": "ID",
+            "value": "a",
+          },
+          "value": "a",
+        },
+        "op": Token {
+          "meta": undefined,
+          "type": "=",
+          "value": "=",
+        },
+        "right": Var {
+          "token": Token {
+            "meta": undefined,
+            "type": "ID",
+            "value": "number",
+          },
+          "value": "number",
+        },
+      },
+      Assign {
+        "left": Var {
+          "token": Token {
+            "meta": undefined,
+            "type": "ID",
+            "value": "b",
+          },
+          "value": "b",
+        },
+        "op": Token {
+          "meta": undefined,
+          "type": "=",
+          "value": "=",
+        },
+        "right": BinOp {
+          "left": BinOp {
+            "left": Num {
+              "token": Token {
+                "meta": undefined,
+                "type": "NUMBER",
+                "value": 10,
+              },
+              "value": 10,
+            },
+            "op": Token {
+              "meta": undefined,
+              "type": "*",
+              "value": "*",
+            },
+            "right": Var {
+              "token": Token {
+                "meta": undefined,
+                "type": "ID",
+                "value": "a",
+              },
+              "value": "a",
+            },
+          },
+          "op": Token {
+            "meta": undefined,
+            "type": "+",
+            "value": "+",
+          },
+          "right": BinOp {
+            "left": BinOp {
+              "left": Num {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "NUMBER",
+                  "value": 10,
+                },
+                "value": 10,
+              },
+              "op": Token {
+                "meta": undefined,
+                "type": "*",
+                "value": "*",
+              },
+              "right": Var {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "ID",
+                  "value": "number",
+                },
+                "value": "number",
+              },
+            },
+            "op": Token {
+              "meta": undefined,
+              "type": "/",
+              "value": "/",
+            },
+            "right": Num {
+              "token": Token {
+                "meta": undefined,
+                "type": "NUMBER",
+                "value": 4,
+              },
+              "value": 4,
+            },
+          },
+        },
+      },
+      Assign {
+        "left": Var {
+          "token": Token {
+            "meta": undefined,
+            "type": "ID",
+            "value": "c",
+          },
+          "value": "c",
+        },
+        "op": Token {
+          "meta": undefined,
+          "type": "=",
+          "value": "=",
+        },
+        "right": BinOp {
+          "left": Var {
+            "token": Token {
+              "meta": undefined,
+              "type": "ID",
+              "value": "a",
+            },
+            "value": "a",
+          },
+          "op": Token {
+            "meta": undefined,
+            "type": "-",
+            "value": "-",
+          },
+          "right": UnaryOp {
+            "expr": Var {
+              "token": Token {
+                "meta": undefined,
+                "type": "ID",
+                "value": "b",
+              },
+              "value": "b",
+            },
+            "op": Token {
+              "meta": undefined,
+              "type": "-",
+              "value": "-",
+            },
+          },
+        },
+      },
+      Assign {
+        "left": Var {
+          "token": Token {
+            "meta": undefined,
+            "type": "ID",
+            "value": "d",
+          },
+          "value": "d",
+        },
+        "op": Token {
+          "meta": undefined,
+          "type": "=",
+          "value": "=",
+        },
+        "right": Str {
+          "token": Token {
+            "meta": undefined,
+            "type": "STRING",
+            "value": "green",
+          },
+          "value": "green",
+        },
+      },
+      Assign {
+        "left": Var {
+          "token": Token {
+            "meta": undefined,
+            "type": "ID",
+            "value": "e",
+          },
+          "value": "e",
+        },
+        "op": Token {
+          "meta": undefined,
+          "type": "=",
+          "value": "=",
+        },
+        "right": List {
+          "values": [
+            Num {
+              "token": Token {
+                "meta": undefined,
+                "type": "NUMBER",
+                "value": 10,
+              },
+              "value": 10,
+            },
+            Str {
+              "token": Token {
+                "meta": undefined,
+                "type": "STRING",
+                "value": "green",
+              },
+              "value": "green",
+            },
+            BinOp {
+              "left": Var {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "ID",
+                  "value": "a",
+                },
+                "value": "a",
+              },
+              "op": Token {
+                "meta": undefined,
+                "type": "-",
+                "value": "-",
+              },
+              "right": Var {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "ID",
+                  "value": "b",
+                },
+                "value": "b",
+              },
+            },
+          ],
+        },
+      },
+      Assign {
+        "left": Var {
+          "token": Token {
+            "meta": undefined,
+            "type": "ID",
+            "value": "f",
+          },
+          "value": "f",
+        },
+        "op": Token {
+          "meta": undefined,
+          "type": "=",
+          "value": "=",
+        },
+        "right": Tuple {
+          "values": [
+            Num {
+              "token": Token {
+                "meta": undefined,
+                "type": "NUMBER",
+                "value": 10,
+              },
+              "value": 10,
+            },
+            Str {
+              "token": Token {
+                "meta": undefined,
+                "type": "STRING",
+                "value": "green",
+              },
+              "value": "green",
+            },
+            BinOp {
+              "left": Var {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "ID",
+                  "value": "a",
+                },
+                "value": "a",
+              },
+              "op": Token {
+                "meta": undefined,
+                "type": "-",
+                "value": "-",
+              },
+              "right": Var {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "ID",
+                  "value": "b",
+                },
+                "value": "b",
+              },
+            },
+          ],
+        },
+      },
+      Assign {
+        "left": Var {
+          "token": Token {
+            "meta": undefined,
+            "type": "ID",
+            "value": "g",
+          },
+          "value": "g",
+        },
+        "op": Token {
+          "meta": undefined,
+          "type": "=",
+          "value": "=",
+        },
+        "right": Dict {
+          "pairs": [
+            [
+              1,
+              Str {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "STRING",
+                  "value": "hello",
+                },
+                "value": "hello",
+              },
+            ],
+            [
+              "a",
+              Num {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "NUMBER",
+                  "value": 1,
+                },
+                "value": 1,
+              },
+            ],
+            [
+              "b",
+              Num {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "NUMBER",
+                  "value": 2,
+                },
+                "value": 2,
+              },
+            ],
+            [
+              "c",
+              BinOp {
+                "left": Var {
+                  "token": Token {
+                    "meta": undefined,
+                    "type": "ID",
+                    "value": "a",
+                  },
+                  "value": "a",
+                },
+                "op": Token {
+                  "meta": undefined,
+                  "type": "-",
+                  "value": "-",
+                },
+                "right": Var {
+                  "token": Token {
+                    "meta": undefined,
+                    "type": "ID",
+                    "value": "b",
+                  },
+                  "value": "b",
+                },
+              },
+            ],
+          ],
+        },
+      },
+      Assign {
+        "left": Var {
+          "token": Token {
+            "meta": undefined,
+            "type": "ID",
+            "value": "h",
+          },
+          "value": "h",
+        },
+        "op": Token {
+          "meta": undefined,
+          "type": "=",
+          "value": "=",
+        },
+        "right": Bool {
+          "value": true,
+        },
+      },
+      Assign {
+        "left": Var {
+          "token": Token {
+            "meta": undefined,
+            "type": "ID",
+            "value": "i",
+          },
+          "value": "i",
+        },
+        "op": Token {
+          "meta": undefined,
+          "type": "=",
+          "value": "=",
+        },
+        "right": BinOp {
+          "left": Bool {
+            "value": false,
+          },
+          "op": Token {
+            "meta": undefined,
+            "type": "*",
+            "value": "*",
+          },
+          "right": Num {
+            "token": Token {
+              "meta": undefined,
+              "type": "NUMBER",
+              "value": 3,
+            },
+            "value": 3,
+          },
+        },
+      },
+      Assign {
+        "left": Var {
+          "token": Token {
+            "meta": undefined,
+            "type": "ID",
+            "value": "j",
+          },
+          "value": "j",
+        },
+        "op": Token {
+          "meta": undefined,
+          "type": "=",
+          "value": "=",
+        },
+        "right": None {},
+      },
+      Assign {
+        "left": Var {
+          "token": Token {
+            "meta": undefined,
+            "type": "ID",
+            "value": "h",
+          },
+          "value": "h",
+        },
+        "op": Token {
+          "meta": undefined,
+          "type": "=",
+          "value": "=",
+        },
+        "right": BinOp {
+          "left": BinOp {
+            "left": Var {
+              "token": Token {
+                "meta": undefined,
+                "type": "ID",
+                "value": "func",
+              },
+              "value": "func",
+            },
+            "op": Token {
+              "meta": undefined,
+              "type": "(",
+              "value": "(",
+            },
+            "right": Params {
+              "values": [
+                Num {
+                  "token": Token {
+                    "meta": undefined,
+                    "type": "NUMBER",
+                    "value": 1,
+                  },
+                  "value": 1,
+                },
+                Num {
+                  "token": Token {
+                    "meta": undefined,
+                    "type": "NUMBER",
+                    "value": 2,
+                  },
+                  "value": 2,
+                },
+              ],
+            },
+          },
+          "op": Token {
+            "meta": undefined,
+            "type": "+",
+            "value": "+",
+          },
+          "right": BinOp {
+            "left": Num {
+              "token": Token {
+                "meta": undefined,
+                "type": "NUMBER",
+                "value": 4,
+              },
+              "value": 4,
+            },
+            "op": Token {
+              "meta": undefined,
+              "type": "/",
+              "value": "/",
+            },
+            "right": Num {
+              "token": Token {
+                "meta": undefined,
+                "type": "NUMBER",
+                "value": 3,
+              },
+              "value": 3,
+            },
+          },
+        },
+      },
+      Assign {
+        "left": Var {
+          "token": Token {
+            "meta": undefined,
+            "type": "ID",
+            "value": "e",
+          },
+          "value": "e",
+        },
+        "op": Token {
+          "meta": undefined,
+          "type": "=",
+          "value": "=",
+        },
+        "right": BinOp {
+          "left": BinOp {
+            "left": BinOp {
+              "left": BinOp {
+                "left": BinOp {
+                  "left": BinOp {
+                    "left": BinOp {
+                      "left": BinOp {
+                        "left": Var {
+                          "token": Token {
+                            "meta": undefined,
+                            "type": "ID",
+                            "value": "a",
+                          },
+                          "value": "a",
+                        },
+                        "op": Token {
+                          "meta": undefined,
+                          "type": ".",
+                          "value": ".",
+                        },
+                        "right": Var {
+                          "token": Token {
+                            "meta": undefined,
+                            "type": "ID",
+                            "value": "c",
+                          },
+                          "value": "c",
+                        },
+                      },
+                      "op": Token {
+                        "meta": undefined,
+                        "type": "(",
+                        "value": "(",
+                      },
+                      "right": Params {
+                        "values": [
+                          Num {
+                            "token": Token {
+                              "meta": undefined,
+                              "type": "NUMBER",
+                              "value": 1,
+                            },
+                            "value": 1,
+                          },
+                          Num {
+                            "token": Token {
+                              "meta": undefined,
+                              "type": "NUMBER",
+                              "value": 2,
+                            },
+                            "value": 2,
+                          },
+                        ],
+                      },
+                    },
+                    "op": Token {
+                      "meta": undefined,
+                      "type": "(",
+                      "value": "(",
+                    },
+                    "right": Params {
+                      "values": [
+                        Str {
+                          "token": Token {
+                            "meta": undefined,
+                            "type": "STRING",
+                            "value": "5",
+                          },
+                          "value": "5",
+                        },
+                      ],
+                    },
+                  },
+                  "op": Token {
+                    "meta": undefined,
+                    "type": ".",
+                    "value": ".",
+                  },
+                  "right": Var {
+                    "token": Token {
+                      "meta": undefined,
+                      "type": "ID",
+                      "value": "hello",
+                    },
+                    "value": "hello",
+                  },
+                },
+                "op": Token {
+                  "meta": undefined,
+                  "type": "(",
+                  "value": "(",
+                },
+                "right": Params {
+                  "values": [],
+                },
+              },
+              "op": Token {
+                "meta": undefined,
+                "type": "(",
+                "value": "(",
+              },
+              "right": Params {
+                "values": [
+                  Num {
+                    "token": Token {
+                      "meta": undefined,
+                      "type": "NUMBER",
+                      "value": 123,
+                    },
+                    "value": 123,
+                  },
+                ],
+              },
+            },
+            "op": Token {
+              "meta": undefined,
+              "type": "[",
+              "value": "[",
+            },
+            "right": Str {
+              "token": Token {
+                "meta": undefined,
+                "type": "STRING",
+                "value": "test",
+              },
+              "value": "test",
+            },
+          },
+          "op": Token {
+            "meta": undefined,
+            "type": ".",
+            "value": ".",
+          },
+          "right": Var {
+            "token": Token {
+              "meta": undefined,
+              "type": "ID",
+              "value": "def",
+            },
+            "value": "def",
+          },
+        },
+      },
+      Console {
+        "expr": Var {
+          "token": Token {
+            "meta": undefined,
+            "type": "ID",
+            "value": "d",
+          },
+          "value": "d",
+        },
+        "type": "@log",
+      },
+      Console {
+        "expr": Var {
+          "token": Token {
+            "meta": undefined,
+            "type": "ID",
+            "value": "b",
+          },
+          "value": "b",
+        },
+        "type": "@log",
+      },
+      If {
+        "elif_blocks": undefined,
+        "else_block": undefined,
+        "if_block": [
+          BinOp {
+            "left": BinOp {
+              "left": Var {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "ID",
+                  "value": "a",
+                },
+                "value": "a",
+              },
+              "op": Token {
+                "meta": undefined,
+                "type": ">",
+                "value": ">",
+              },
+              "right": Num {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "NUMBER",
+                  "value": 0,
+                },
+                "value": 0,
+              },
+            },
+            "op": Token {
+              "meta": undefined,
+              "type": "and",
+              "value": "and",
+            },
+            "right": BinOp {
+              "left": Var {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "ID",
+                  "value": "b",
+                },
+                "value": "b",
+              },
+              "op": Token {
+                "meta": undefined,
+                "type": ">",
+                "value": ">",
+              },
+              "right": Num {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "NUMBER",
+                  "value": 0,
+                },
+                "value": 0,
+              },
+            },
+          },
+          Block {
+            "statement_list": [
+              Console {
+                "expr": Str {
+                  "token": Token {
+                    "meta": undefined,
+                    "type": "STRING",
+                    "value": "The numbers are greater than 0",
+                  },
+                  "value": "The numbers are greater than 0",
+                },
+                "type": "@log",
+              },
+              NoOp {},
+            ],
+            "style_list": [
+              NoOp {},
+            ],
+          },
+        ],
+      },
+      If {
+        "elif_blocks": undefined,
+        "else_block": Block {
+          "statement_list": [
+            Console {
+              "expr": Str {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "STRING",
+                  "value": "Atleast one number is not greater than 0",
+                },
+                "value": "Atleast one number is not greater than 0",
+              },
+              "type": "@log",
+            },
+            NoOp {},
+          ],
+          "style_list": [
+            NoOp {},
+          ],
+        },
+        "if_block": [
+          BinOp {
+            "left": BinOp {
+              "left": BinOp {
+                "left": Var {
+                  "token": Token {
+                    "meta": undefined,
+                    "type": "ID",
+                    "value": "a",
+                  },
+                  "value": "a",
+                },
+                "op": Token {
+                  "meta": undefined,
+                  "type": ">",
+                  "value": ">",
+                },
+                "right": Num {
+                  "token": Token {
+                    "meta": undefined,
+                    "type": "NUMBER",
+                    "value": 0,
+                  },
+                  "value": 0,
+                },
+              },
+              "op": Token {
+                "meta": undefined,
+                "type": "and",
+                "value": "and",
+              },
+              "right": BinOp {
+                "left": Var {
+                  "token": Token {
+                    "meta": undefined,
+                    "type": "ID",
+                    "value": "b",
+                  },
+                  "value": "b",
+                },
+                "op": Token {
+                  "meta": undefined,
+                  "type": ">",
+                  "value": ">",
+                },
+                "right": Num {
+                  "token": Token {
+                    "meta": undefined,
+                    "type": "NUMBER",
+                    "value": 0,
+                  },
+                  "value": 0,
+                },
+              },
+            },
+            "op": Token {
+              "meta": undefined,
+              "type": "and",
+              "value": "and",
+            },
+            "right": BinOp {
+              "left": Var {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "ID",
+                  "value": "c",
+                },
+                "value": "c",
+              },
+              "op": Token {
+                "meta": undefined,
+                "type": ">",
+                "value": ">",
+              },
+              "right": Num {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "NUMBER",
+                  "value": 0,
+                },
+                "value": 0,
+              },
+            },
+          },
+          Block {
+            "statement_list": [
+              Console {
+                "expr": Str {
+                  "token": Token {
+                    "meta": undefined,
+                    "type": "STRING",
+                    "value": "The numbers are greater than 0",
+                  },
+                  "value": "The numbers are greater than 0",
+                },
+                "type": "@log",
+              },
+              NoOp {},
+            ],
+            "style_list": [
+              NoOp {},
+            ],
+          },
+        ],
+      },
+      If {
+        "elif_blocks": [
+          [
+            BinOp {
+              "left": Var {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "ID",
+                  "value": "b",
+                },
+                "value": "b",
+              },
+              "op": Token {
+                "meta": undefined,
+                "type": ">",
+                "value": ">",
+              },
+              "right": Num {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "NUMBER",
+                  "value": 0,
+                },
+                "value": 0,
+              },
+            },
+            Block {
+              "statement_list": [
+                Console {
+                  "expr": Str {
+                    "token": Token {
+                      "meta": undefined,
+                      "type": "STRING",
+                      "value": "b",
+                    },
+                    "value": "b",
+                  },
+                  "type": "@log",
+                },
+                NoOp {},
+              ],
+              "style_list": [
+                NoOp {},
+              ],
+            },
+          ],
+          [
+            BinOp {
+              "left": Var {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "ID",
+                  "value": "c",
+                },
+                "value": "c",
+              },
+              "op": Token {
+                "meta": undefined,
+                "type": ">",
+                "value": ">",
+              },
+              "right": Num {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "NUMBER",
+                  "value": 0,
+                },
+                "value": 0,
+              },
+            },
+            Block {
+              "statement_list": [
+                Console {
+                  "expr": Str {
+                    "token": Token {
+                      "meta": undefined,
+                      "type": "STRING",
+                      "value": "c",
+                    },
+                    "value": "c",
+                  },
+                  "type": "@log",
+                },
+                NoOp {},
+              ],
+              "style_list": [
+                NoOp {},
+              ],
+            },
+          ],
+        ],
+        "else_block": Block {
+          "statement_list": [
+            Console {
+              "expr": Str {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "STRING",
+                  "value": "unknown",
+                },
+                "value": "unknown",
+              },
+              "type": "@log",
+            },
+            NoOp {},
+          ],
+          "style_list": [
+            NoOp {},
+          ],
+        },
+        "if_block": [
+          BinOp {
+            "left": Var {
+              "token": Token {
+                "meta": undefined,
+                "type": "ID",
+                "value": "a",
+              },
+              "value": "a",
+            },
+            "op": Token {
+              "meta": undefined,
+              "type": ">",
+              "value": ">",
+            },
+            "right": Num {
+              "token": Token {
+                "meta": undefined,
+                "type": "NUMBER",
+                "value": 0,
+              },
+              "value": 0,
+            },
+          },
+          Block {
+            "statement_list": [
+              Console {
+                "expr": Str {
+                  "token": Token {
+                    "meta": undefined,
+                    "type": "STRING",
+                    "value": "a",
+                  },
+                  "value": "a",
+                },
+                "type": "@log",
+              },
+              NoOp {},
+            ],
+            "style_list": [
+              NoOp {},
+            ],
+          },
+        ],
+      },
+      Console {
+        "expr": BinOp {
+          "left": Var {
+            "token": Token {
+              "meta": undefined,
+              "type": "ID",
+              "value": "a",
+            },
+            "value": "a",
+          },
+          "op": Token {
+            "meta": undefined,
+            "type": "+",
+            "value": "+",
+          },
+          "right": Num {
+            "token": Token {
+              "meta": undefined,
+              "type": "NUMBER",
+              "value": 12,
+            },
+            "value": 12,
+          },
+        },
+        "type": "@warn",
+      },
+      JS {
+        "code": "123",
+      },
+    ],
+    "style_list": [
+      StyleDecl {
+        "children": Block {
+          "statement_list": [
+            Assign {
+              "left": Var {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "ID",
+                  "value": "testNest",
+                },
+                "value": "testNest",
+              },
+              "op": Token {
+                "meta": undefined,
+                "type": "=",
+                "value": "=",
+              },
+              "right": Num {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "NUMBER",
+                  "value": 123,
+                },
+                "value": 123,
+              },
+            },
+            NoOp {},
+          ],
+          "style_list": [
+            PropDecl {
+              "name": "color",
+              "value": Str {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "STRING",
+                  "value": "red",
+                },
+                "value": "red",
+              },
+            },
+            StyleDecl {
+              "children": Block {
+                "statement_list": [
+                  NoOp {},
+                ],
+                "style_list": [
+                  PropDecl {
+                    "name": "color",
+                    "value": Template {
+                      "token": Token {
+                        "meta": undefined,
+                        "type": "TEMPLATE",
+                        "value": "\${d}",
+                      },
+                      "value": "\${d}",
+                    },
+                  },
+                ],
+              },
+              "selector": ".abc .def",
+            },
+          ],
+        },
+        "selector": ".test",
+      },
+      StyleDecl {
+        "children": Block {
+          "statement_list": [
+            Assign {
+              "left": Var {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "ID",
+                  "value": "testNest",
+                },
+                "value": "testNest",
+              },
+              "op": Token {
+                "meta": undefined,
+                "type": "=",
+                "value": "=",
+              },
+              "right": Num {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "NUMBER",
+                  "value": 123,
+                },
+                "value": 123,
+              },
+            },
+            NoOp {},
+          ],
+          "style_list": [
+            PropDecl {
+              "name": "color",
+              "value": Str {
+                "token": Token {
+                  "meta": undefined,
+                  "type": "STRING",
+                  "value": "red",
+                },
+                "value": "red",
+              },
+            },
+            StyleDecl {
+              "children": Block {
+                "statement_list": [
+                  NoOp {},
+                ],
+                "style_list": [
+                  PropDecl {
+                    "name": "background",
+                    "value": Str {
+                      "token": Token {
+                        "meta": undefined,
+                        "type": "STRING",
+                        "value": "green",
+                      },
+                      "value": "green",
+                    },
+                  },
+                ],
+              },
+              "selector": "&:hover > nest",
+            },
+          ],
+        },
+        "selector": ".def",
+      },
+    ],
+  },
+}
+`;

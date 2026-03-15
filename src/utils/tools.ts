@@ -1,5 +1,6 @@
 import type { colorCallback, colorObject } from '../interfaces';
 
+
 export class Console {
   static log(...message: unknown[]): void {
     // eslint-disable-next-line no-console
@@ -27,13 +28,18 @@ export function toArray<T>(v: Arrayable<T>): T[] {
   return [v];
 }
 
+const _hashCache = new Map<string, string>();
 export function hash(str: string): string {
+  if (_hashCache.has(str)) return _hashCache.get(str)!;
+  const oStr = str;
   str = str.replace(/\r/g, '');
   let hash = 5381;
   let i = str.length;
 
   while (i--) hash = ((hash << 5) - hash) ^ str.charCodeAt(i);
-  return (hash >>> 0).toString(36);
+  const res = (hash >>> 0).toString(36);
+  _hashCache.set(oStr, res);
+  return res;
 }
 
 export function type(val: unknown): string {
@@ -61,6 +67,13 @@ export function wrapit(
 ): string {
   if (minify) return `${start}${code}${end}`;
   return `${start}\n${indent(code, tab)}\n${end}`;
+}
+
+export function minifyCssPattern(css: string): string {
+  return css
+    .replace(/(?<=[\s:])0(?:px|em|rem|ex|ch|vw|vh|vmin|vmax|%|pt|pc|in|cm|mm)(?=[;\s}])/g, '0')
+    .replace(/#([0-9a-fA-F])\1([0-9a-fA-F])\2([0-9a-fA-F])\3(?=[;\s}])/gi, '#$1$2$3')
+    .replace(/0\./g, '.'); // 0.5 -> .5
 }
 
 export function isNumber(
@@ -198,24 +211,40 @@ export function toType(
 }
 
 export function deepCopy<T>(source: T): T {
-  return Array.isArray(source)
-    ? (source as unknown[]).map((item: unknown) => deepCopy(item))
-    : source instanceof Date
-      ? new Date(source.getTime())
-      : source && typeof source === 'object'
-        ? Object.getOwnPropertyNames(source).reduce((o, prop) => {
-          const descriptor = Object.getOwnPropertyDescriptor(source, prop);
-          if (descriptor) {
-            Object.defineProperty(o, prop, descriptor);
-            if (source && typeof source === 'object') {
-              o[prop] = deepCopy(
-                ((source as unknown) as { [key: string]: unknown })[prop]
-              );
-            }
-          }
-          return o;
-        }, Object.create(Object.getPrototypeOf(source)))
-        : (source as T);
+  if (source === null || typeof source !== 'object') {
+    return source;
+  }
+  if (Array.isArray(source)) {
+    return (source as unknown[]).map((item: unknown) => deepCopy(item)) as any as T;
+  }
+  if (source instanceof Date) {
+    return new Date(source.getTime()) as any as T;
+  }
+
+  // Fast path for plain objects
+  const proto = Object.getPrototypeOf(source);
+  if (proto === Object.prototype || proto === null) {
+    const copy = Object.create(proto);
+    for (const key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        copy[key] = deepCopy((source as any)[key]);
+      }
+    }
+    return copy;
+  }
+
+  return Object.getOwnPropertyNames(source).reduce((o, prop) => {
+    const descriptor = Object.getOwnPropertyDescriptor(source, prop);
+    if (descriptor) {
+      Object.defineProperty(o, prop, descriptor);
+      if (source && typeof source === 'object') {
+        o[prop] = deepCopy(
+          ((source as unknown) as { [key: string]: unknown })[prop]
+        );
+      }
+    }
+    return o;
+  }, Object.create(proto));
 }
 
 export function isTagName(name: string): boolean {
@@ -296,6 +325,7 @@ export function searchNotEscape(text:string, chars: string | string[] = ['{']): 
 }
 
 export function splitSelectors(selectors: string): string[] {
+
   const splitted = [];
   let parens = 0;
   let angulars = 0;

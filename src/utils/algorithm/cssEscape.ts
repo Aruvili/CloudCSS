@@ -1,6 +1,11 @@
 // https://drafts.csswg.org/cssom/#serialize-an-identifier
 
+const _escapeCache = new Map<string, string>();
+
 export default function cssEscape(str: string): string {
+  if (_escapeCache.has(str)) return _escapeCache.get(str)!;
+  const oStr = str;
+
   const length = str.length;
   let index = -1;
   let codeUnit;
@@ -76,5 +81,7 @@ export default function cssEscape(str: string): string {
     // https://drafts.csswg.org/cssom/#escape-a-character
     result += '\\' + str.charAt(index);
   }
+  
+  _escapeCache.set(oStr, result);
   return result;
 }

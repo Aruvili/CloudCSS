@@ -1,0 +1,178 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Validate Utilities > validate > ignored 1`] = `
+[
+  {
+    "className": "ac:font-bold",
+    "content": "ac:font-bold",
+    "end": 62,
+    "important": false,
+    "parent": undefined,
+    "raw": "ac:font-bold",
+    "start": 50,
+    "type": "utility",
+    "variants": [],
+  },
+  {
+    "className": "abc",
+    "content": "abc",
+    "end": 101,
+    "important": false,
+    "parent": undefined,
+    "raw": "abc",
+    "start": 98,
+    "type": "utility",
+    "variants": [],
+  },
+]
+`;
+
+exports[`Validate Utilities > validate > success 1`] = `
+[
+  {
+    "className": "font-bold",
+    "content": "font-bold",
+    "end": 9,
+    "important": false,
+    "parent": undefined,
+    "raw": "font-bold",
+    "start": 0,
+    "type": "utility",
+    "variants": [],
+  },
+  {
+    "className": "text-green-300",
+    "content": "text-green-300",
+    "end": 26,
+    "important": false,
+    "parent": undefined,
+    "raw": "text-green-300",
+    "start": 12,
+    "type": "utility",
+    "variants": [],
+  },
+  {
+    "className": "sm:dark:hover:text-lg",
+    "content": "text-lg",
+    "end": 49,
+    "important": false,
+    "parent": undefined,
+    "raw": "sm:dark:hover:text-lg",
+    "start": 28,
+    "type": "utility",
+    "variants": [
+      "sm",
+      "dark",
+      "hover",
+    ],
+  },
+  {
+    "className": "sm:bg-gray-100",
+    "content": "bg-gray-100",
+    "end": 78,
+    "important": false,
+    "parent": {
+      "content": [
+        {
+          "content": "bg-gray-100",
+          "end": 78,
+          "important": false,
+          "raw": "bg-gray-100",
+          "start": 67,
+          "type": "utility",
+          "variants": [],
+        },
+        {
+          "content": "bg-gray-200",
+          "end": 96,
+          "important": false,
+          "raw": "hover:bg-gray-200",
+          "start": 79,
+          "type": "utility",
+          "variants": [
+            "hover",
+          ],
+        },
+      ],
+      "end": 97,
+      "important": false,
+      "raw": "sm:(bg-gray-100 hover:bg-gray-200)",
+      "start": 63,
+      "type": "group",
+      "variants": [
+        "sm",
+      ],
+    },
+    "raw": "bg-gray-100",
+    "start": 67,
+    "type": "utility",
+    "variants": [],
+  },
+  {
+    "className": "sm:hover:bg-gray-200",
+    "content": "bg-gray-200",
+    "end": 96,
+    "important": false,
+    "parent": {
+      "content": [
+        {
+          "content": "bg-gray-100",
+          "end": 78,
+          "important": false,
+          "raw": "bg-gray-100",
+          "start": 67,
+          "type": "utility",
+          "variants": [],
+        },
+        {
+          "content": "bg-gray-200",
+          "end": 96,
+          "important": false,
+          "raw": "hover:bg-gray-200",
+          "start": 79,
+          "type": "utility",
+          "variants": [
+            "hover",
+          ],
+        },
+      ],
+      "end": 97,
+      "important": false,
+      "raw": "sm:(bg-gray-100 hover:bg-gray-200)",
+      "start": 63,
+      "type": "group",
+      "variants": [
+        "sm",
+      ],
+    },
+    "raw": "hover:bg-gray-200",
+    "start": 79,
+    "type": "utility",
+    "variants": [
+      "hover",
+    ],
+  },
+  {
+    "className": "bg-cool-gray-300",
+    "content": "bg-cool-gray-300",
+    "end": 118,
+    "important": false,
+    "parent": undefined,
+    "raw": "bg-cool-gray-300",
+    "start": 102,
+    "type": "utility",
+    "variants": [],
+  },
+  {
+    "className": "bg-hex-fff",
+    "content": "bg-hex-fff",
+    "end": 129,
+    "important": false,
+    "parent": undefined,
+    "raw": "bg-hex-fff",
+    "start": 119,
+    "type": "utility",
+    "variants": [],
+  },
+]
+`;

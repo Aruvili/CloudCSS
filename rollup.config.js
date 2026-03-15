@@ -6,7 +6,8 @@ import sucrase from '@rollup/plugin-sucrase';
 import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
-import pkg from './package.json';
+
+const pkg = JSON.parse(fs.readFileSync(new URL('./package.json', import.meta.url), 'utf8'));
 
 const output_dir = './dist';
 
@@ -14,7 +15,7 @@ const prod = process.env.NODE_ENV === 'production';
 
 const ts_plugin = prod
   ? typescript({
-    target: 'es5',
+    target: 'es2024',
     include: 'src/**',
     outDir: output_dir,
     typescript: require('typescript'),

@@ -1,5 +1,4 @@
 import colorString from 'color-string';
-import type { Color } from 'color-string';
 
 export function hsl2rgb(h: number, s: number, l: number): [number, number, number] {
   l /= 100;
@@ -48,7 +47,7 @@ export function hwb2rgb(h: number, w: number, b: number): [number, number, numbe
   return rgb;
 }
 
-export function toRGBA(color: string): Color | undefined {
+export function toRGBA(color: string): number[] | undefined {
   if (/^hsla?/.test(color)) {
     const color_array = colorString.get.hsl(color);
     if (!color_array) return;

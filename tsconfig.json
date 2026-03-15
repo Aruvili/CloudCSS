@@ -2,10 +2,10 @@
   "compilerOptions": {
     "rootDir": ".",
     "baseUrl": ".",
-    "target": "es2017",
+    "target": "es2024",
     "module": "esnext",
     "moduleResolution": "node",
-    "lib": ["dom", "es2017", "dom.iterable", "scripthost"],
+    "lib": ["dom", "es2024", "dom.iterable", "scripthost"],
     "allowJs": true,
     "strict": true,
     "esModuleInterop": true,

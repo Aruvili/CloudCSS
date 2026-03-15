@@ -149,10 +149,9 @@ export default class ClassParser {
 
   parse(removeDuplicated = true): Element[] {
     if (!this.classNames) return [];
-    // Turn classes into group;
+    
     this.classNames = '(' + this.classNames + ')';
     const elements = this._handle_group(removeDuplicated);
-    // Initialization, convenient for next call
     this.index = 0;
     this.classNames = this.classNames.slice(1, -1);
     return elements;

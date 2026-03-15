@@ -42,6 +42,7 @@ Options:
   -f, --config PATH     Set config file path.
 
   --style               Parse and transform windi style block.
+  --layer               Wrap the output CSS in standard @layer directives (base, components, utilities).
   --init PATH           Start a new project on the path.
 `;
 
@@ -59,6 +60,7 @@ const args = arg({
   '--minify': Boolean,
   '--fuzzy': Boolean,
   '--style': Boolean,
+  '--layer': Boolean,
   '--init': String,
   '--prefix': String,
   '--output': String,
@@ -135,15 +137,19 @@ function compile(files: string[]) {
     styleSheets[file] = args['--dev'] ? (styleSheets[file]? styleSheets[file].extend(added) : added) : added;
 
     const outputFile = file.replace(/(?=\.\w+$)/, '.windi');
-    writeFile(outputFile, outputHTML.join(''), () => null);
-    Console.log(`${file} -> ${outputFile}`);
-    if (args['--preflight']) {
-      if (args['--dev']) {
-        const preflight = processor.preflight(html, true, true, true, true);
-        preflights[file] = preflights[file] ? preflights[file].extend(preflight) : preflight;
-      } else {
-        preflights[file] = processor.preflight(html);
+    try {
+      writeFile(outputFile, outputHTML.join(''), () => null);
+      Console.log(`${file} -> ${outputFile}`);
+      if (args['--preflight']) {
+        if (args['--dev']) {
+          const preflight = processor.preflight(html, true, true, true, true);
+          preflights[file] = preflights[file] ? preflights[file].extend(preflight) : preflight;
+        } else {
+          preflights[file] = processor.preflight(html);
+        }
       }
+    } catch(e: any) {
+      Console.error(`Compilation Error in ${file}: ${e.message}`);
     }
   });
 }
@@ -171,16 +177,24 @@ function interpret(files: string[]) {
       }
     }
     if (args['--dev']) {
-      const utility = processor.interpret(classes.join(' '), true);
-      styleSheets[file] = styleSheets[file] ? styleSheets[file].extend(utility.styleSheet) : utility.styleSheet;
-      if (args['--preflight']) {
-        const preflight = processor.preflight(content, true, true, true, true);
-        preflights[file] = preflights[file] ? preflights[file].extend(preflight) : preflight;
+      try {
+        const utility = processor.interpret(classes.join(' '), true);
+        styleSheets[file] = styleSheets[file] ? styleSheets[file].extend(utility.styleSheet) : utility.styleSheet;
+        if (args['--preflight']) {
+          const preflight = processor.preflight(content, true, true, true, true);
+          preflights[file] = preflights[file] ? preflights[file].extend(preflight) : preflight;
+        }
+      } catch (e: any) {
+        Console.error(`Interpretation Error in ${file}: ${e.message}`);
       }
     } else {
-      const utility = processor.interpret(classes.join(' '));
-      styleSheets[file] = utility.styleSheet;
-      if (args['--preflight']) preflights[file] = processor.preflight(content);
+      try {
+        const utility = processor.interpret(classes.join(' '));
+        styleSheets[file] = utility.styleSheet;
+        if (args['--preflight']) preflights[file] = processor.preflight(content);
+      } catch (e: any) {
+        Console.error(`Interpretation Error in ${file}: ${e.message}`);
+      }
     }
   });
 }
@@ -234,7 +248,7 @@ function build(files: string[], update = false) {
   if (args['--separate']) {
     for (const [file, sheet] of Object.entries(styleSheets)) {
       const outfile = file.replace(/\.\w+$/, '.windi.css');
-      writeFile(outfile, (args['--preflight'] ? deepCopy(sheet).extend(preflights[file], false) : sheet).build(args['--minify']), () => null);
+      writeFile(outfile, (args['--preflight'] ? deepCopy(sheet).extend(preflights[file], false) : sheet).build(args['--minify'], args['--layer']), () => null);
       Console.log(`${file} -> ${outfile}`);
     }
   } else {
@@ -259,7 +273,7 @@ function build(files: string[], update = false) {
     const filePath = args['--output'] ?? 'windi.css';
     const dir = dirname(filePath);
     if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
-    writeFile(filePath, outputStyle.build(args['--minify']), () => null);
+    writeFile(filePath, outputStyle.build(args['--minify'], args['--layer']), () => null);
     if (!update) {
       Console.log('Matched files:', files);
       Console.log('Output file:', resolve(filePath));
@@ -302,12 +316,12 @@ buildSafeList(safelist);
 build(matchFiles);
 
 function watchBuild(file: string) {
-  watch(file, (event, path) => {
+  watch(file, (event, filepath) => {
     if (event === 'rename') {
       const newFiles = globArray(patterns);
       const renamed = matchFiles.filter(i => !(newFiles.includes(i)))[0];
-      if (existsSync(path)) {
-        Console.log('File', `'${renamed}'`, 'has been renamed to', `'${path}'`);
+      if (filepath && existsSync(filepath)) {
+        Console.log('File', `'${renamed}'`, 'has been renamed to', `'${filepath}'`);
         matchFiles = newFiles;
         Console.log('Matched files:', matchFiles);
       } else {
@@ -330,7 +344,7 @@ function watchBuild(file: string) {
       }
     }
     if (event === 'change') {
-      Console.log('File', `'${path}'`, 'has been changed');
+      Console.log('File', `'${filepath}'`, 'has been changed');
       Console.time('Building');
       build([file], true);
       Console.timeEnd('Building');
@@ -365,8 +379,8 @@ if (args['--dev']) {
     watchBuild(file);
   }
   for (const dir of Array.from(new Set(matchFiles.map(f => dirname(f))))) {
-    watch(dir, (event, path) => {
-      if (event === 'rename' && existsSync(join(dir, path))) {
+    watch(dir, (event, filepath) => {
+      if (event === 'rename' && filepath && existsSync(join(dir, filepath))) {
         // when create new file
         const newFiles = globArray(patterns);
         if (newFiles.length > matchFiles.length) {

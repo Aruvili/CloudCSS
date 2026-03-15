@@ -1,5 +1,9 @@
 {
   "spec_dir": "test",
-  "spec_files": ["**/*[tT]est.ts"],
-  "helpers": ["reporter.ts"]
+  "spec_files": [ 
+    "**/*[tT]est.ts"
+  ],
+  "helpers": [
+    "reporter.ts"
+  ]
 }

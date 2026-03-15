@@ -33,7 +33,7 @@ describe('generate completions', () => {
     expect(processor.theme('maxHeight[\'screen-0\']')).toEqual('calc(100vh - 0px)');
     expect(processor.interpret('h-screen-px h-screen-0 max-h-screen-px max-h-screen-0').styleSheet.build()).toMatchSnapshot('css');
     const completions = generateCompletions(processor);
-    expect(completions.static.includes('h-screen-abc')).toBeTrue();
-    expect(completions.static.includes('max-h-screen-abc')).toBeTrue();
+    expect(completions.static.includes('h-screen-abc')).toBeTruthy();
+    expect(completions.static.includes('max-h-screen-abc')).toBeTruthy();
   });
 });

@@ -1,4 +1,4 @@
-import { hash, deepCopy } from '../tools';
+import { hash, deepCopy, minifyCssPattern } from '../tools';
 import { Layer } from '../../interfaces';
 import { sortMeta } from '../algorithm/sortStyle';
 import compileStyleSheet from '../algorithm/compileStyleSheet';
@@ -82,7 +82,21 @@ export class StyleSheet {
     return this;
   }
 
-  build(minify = false): string {
-    return compileStyleSheet(this.children, minify, this.prefixer);
+  build(minify = false, layer = false): string {
+    let outputString = '';
+    if (layer) {
+      const { base, components, utilities } = this.split();
+      const bStyle = base.build(minify);
+      const cStyle = components.build(minify);
+      const uStyle = utilities.build(minify);
+      const output = [ `@layer base, components, utilities;` ];
+      if (bStyle) output.push(`@layer base {${minify?'':'\n'}${bStyle}\n}`);
+      if (cStyle) output.push(`@layer components {${minify?'':'\n'}${cStyle}\n}`);
+      if (uStyle) output.push(`@layer utilities {${minify?'':'\n'}${uStyle}\n}`);
+      outputString = output.join(minify ? '' : '\n');
+    } else {
+      outputString = compileStyleSheet(this.children, minify, this.prefixer);
+    }
+    return minify ? minifyCssPattern(outputString) : outputString;
   }
 }

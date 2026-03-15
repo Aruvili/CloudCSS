@@ -1,6 +1,8 @@
 export type Attr = { raw: string, key: string, value: string|string[], start: number, end: number };
 export type ClassName = { result: string, start: number, end: number };
 
+
+
 export default class HTMLParser {
   html?: string;
   constructor(html?: string) {
@@ -9,8 +11,11 @@ export default class HTMLParser {
 
   parseAttrs(): Attr[] {
     if (!this.html) return [];
+    
+
+
     const output: Attr[] = [];
-    const regex = /\S+\s*=\s*"[^"]+"|\S+\s*=\s*'[^']+'|\S+\s*=\s*[^>\s]+/igm;
+    const regex = /\S+\s*=\s*(?:"[^"]+"|'[^']+'|[^>\s]+)/igm;
     let match;
     while ((match = regex.exec(this.html as string))) {
       if (match) {
@@ -34,10 +39,12 @@ export default class HTMLParser {
   }
 
   parseClasses(): ClassName[] {
-    // Match all class properties
     if (!this.html) return [];
+
+
+
     const output: ClassName[] = [];
-    const regex = /class(Name)?\s*=\s*{`[^`]+`}|class(Name)?\s*=\s*"[^"]+"|class(Name)?\s*=\s*'[^']+'|class(Name)?\s*=\s*[^>\s]+/igm;
+    const regex = /class(?:Name)?\s*=\s*(?:{`[^`]+`}|"[^"]+"|'[^']+'|[^>\s]+)/igm;
     let match;
     while ((match = regex.exec(this.html as string))) {
       if (match) {
@@ -64,8 +71,10 @@ export default class HTMLParser {
   }
 
   parseTags(): string[] {
-    // Match all html tags
     if (!this.html) return [];
+
+
+
     return Array.from(new Set(this.html.match(/<\w+/g))).map((i) =>
       i.substring(1)
     );

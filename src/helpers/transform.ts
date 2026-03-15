@@ -1,4 +1,3 @@
-import { addHook } from 'pirates';
 import { createRequire } from 'module';
 
 export function convert(code: string): string {
@@ -21,12 +20,7 @@ export function convert(code: string): string {
 
 export function transform(path: string): any {
   const require = createRequire(import.meta.url);
-  const matcher = (filename: string) => !/\/windicss\//.test(filename);
-  const revert = addHook(
-    (code, ) => convert(code),
-    { exts: ['.js'], matcher, ignoreNodeModules: false }
-  );
   const mod = require(path);
-  revert();
+  return mod;
   return mod;
 }

@@ -1,0 +1,213 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Plugin Method > add components containing array of style objects #439 > css 1`] = `
+"@media (min-width:1024px) {
+  .btn {
+    color: red;
+    border: 1rem;
+  }
+}"
+`;
+
+exports[`Plugin Method > add components containing array of style objects #439 > css 2`] = `
+"@media (min-width:1024px) {
+  .btn-side {
+    color: white;
+    border: 2rem;
+  }
+}"
+`;
+
+exports[`Plugin Method > add duplicated components > css 1`] = `
+".btn {
+  padding: .5rem 1rem;
+  border-radius: .25rem;
+  font-weight: 600;
+}"
+`;
+
+exports[`Plugin Method > add duplicated utilities > css 1`] = `
+".btn {
+  padding: .5rem 1rem;
+  border-radius: .25rem;
+  font-weight: 600;
+}"
+`;
+
+exports[`Plugin Method > add multi utilities > a 1`] = `
+".a {
+  padding: .5rem 1rem;
+  border-radius: .25rem;
+}"
+`;
+
+exports[`Plugin Method > add multi utilities > b 1`] = `
+".b:hover {
+  padding: .5rem 1rem;
+  border-radius: .25rem;
+}"
+`;
+
+exports[`Plugin Method > add multi utilities > preflight 1`] = `
+"[type='button'] {
+  padding: .5rem 1rem;
+  border-radius: .25rem;
+}"
+`;
+
+exports[`Plugin Method > add nest class name > css 1`] = `
+".btn.loading:before {
+  border-radius: 9999px;
+  border-width: 2px;
+  height: 1rem;
+  margin-right: .5rem;
+  width: 1rem;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  content: "";
+  border-color: transparent currentColor currentColor transparent;
+}"
+`;
+
+exports[`Plugin Method > add pseudo components > css 1`] = `
+".btn {
+  padding: .5rem 1rem;
+  border-radius: .25rem;
+}
+.btn:hover {
+  color: #fff;
+}
+@media (min-width: 768px) {
+  @keyframes ping {
+    .btn {
+      font-weight: 600;
+    }
+  }
+}"
+`;
+
+exports[`Plugin Method > add pseudo utilities > css 1`] = `
+".btn {
+  padding: .5rem 1rem;
+  border-radius: .25rem;
+}
+.btn:hover {
+  color: #fff;
+}
+.hover\\:abc:hover {
+  color: #1c1c1e;
+}
+@media (min-width: 640px) {
+  .hover\\:abc:hover {
+    color: #fff;
+  }
+}
+@media (min-width: 768px) {
+  @keyframes ping {
+    .test {
+      color: red;
+    }
+    .btn {
+      font-weight: 600;
+    }
+  }
+}"
+`;
+
+exports[`Plugin Method > add utilities containing array of style objects #439 > css 1`] = `
+"@media (min-width:1024px) {
+  .btn {
+    color: red;
+    border: 1rem;
+  }
+}"
+`;
+
+exports[`Plugin Method > add utilities containing array of style objects #439 > css 2`] = `
+"@media (min-width:1024px) {
+  .btn-side {
+    color: white;
+    border: 2rem;
+  }
+}"
+`;
+
+exports[`Plugin Method > addComponents #242 > css 1`] = `
+".avatar>div {
+  display: block;
+  overflow: hidden;
+}
+.avatar+div {
+  display: block;
+  overflow: hidden;
+}
+.avatar div {
+  display: block;
+  overflow: hidden;
+}
+.avatar~div {
+  display: block;
+  overflow: hidden;
+}"
+`;
+
+exports[`Plugin Method > addComponents with non-class styles  > css 1`] = `
+"[data-theme] {
+  --active: #0099FF;
+}
+[data-theme="dark"] {
+  --primary: #111111;
+  --on-primary: #B4B4B4;
+  --on-primary-active: #F2F2F2;
+  --frame: #1E1E1E;
+  --on-frame: #808080;
+  --on-frame-active: var(--on-primary);
+}
+[data-theme="light"] {
+  --primary: #FFFFFF;
+  --on-primary: #888888;
+  --on-primary-active: #333333;
+  --frame: #EFEFEF;
+  --on-frame: #808080;
+  --on-frame-active: var(--on-primary);
+}"
+`;
+
+exports[`Plugin Method > addVariant modifySelectors > css 1`] = `
+".disabled\\:float-right:disabled {
+  float: right;
+}"
+`;
+
+exports[`Plugin Method > addVariant pseudoClass > css 1`] = `
+".hocus\\:float-right:hover:focus {
+  float: right;
+}"
+`;
+
+exports[`Plugin Method > addVariant pseudoClass > extend 1`] = `
+".float-right:hover:focus {
+  float: right;
+}"
+`;
+
+exports[`Plugin Method > dump config > css 1`] = `
+".bg-nord0 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(46, 52, 64, var(--tw-bg-opacity));
+}"
+`;
+
+exports[`Plugin Method > interpret order should follow add components order > css 1`] = `
+".btn {
+  padding: .5rem 1rem;
+}
+.btn-sm {
+  border-radius: .25rem;
+  font-weight: 600;
+}
+.btn-lg {
+  border-radius: .5rem;
+  font-weight: 700;
+}"
+`;

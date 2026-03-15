@@ -44,16 +44,16 @@ describe('Utilities', () => {
     expect(processor.extract('*?')).toBeUndefined();
 
     const b = processor.extract('font-bold', true);
-    expect(b instanceof Style).toBeTrue();
+    expect(b instanceof Style).toBeTruthy();
 
     const c = processor.extract('container');
-    expect(Array.isArray(c)).toBeTrue();
+    expect(Array.isArray(c)).toBeTruthy();
 
     const d = processor.extract('container', true);
-    expect(Array.isArray(d)).toBeTrue();
+    expect(Array.isArray(d)).toBeTruthy();
 
     const e = processor.extract('sticky');
-    expect(Array.isArray(e)).toBeFalse();
+    expect(Array.isArray(e)).toBeFalsy();
 
     const f = processor.extract('static');
     expect(f instanceof Style);

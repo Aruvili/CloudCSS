@@ -35,7 +35,7 @@ describe('Compilation Mode', () => {
     expect(
       processor.compile('font-bold text-white').styleSheet.build() ===
         processor.compile('text-white font-bold').styleSheet.build()
-    ).toBeFalse();
+    ).toBeFalsy();
   });
 
   it('compile important', () => {

@@ -1,0 +1,94 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`line clamp plugin > add completions > completions 1`] = `
+{
+  "lineClamp": [
+    "line-clamp-none",
+    "line-clamp-{int}",
+  ],
+}
+`;
+
+exports[`line clamp plugin > customize test > line-clamp customized 1`] = `
+".line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.line-clamp-4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+.line-clamp-sm {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+.line-clamp-md {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+}"
+`;
+
+exports[`line clamp plugin > interpret test > line-clamp 1`] = `
+".line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.line-clamp-4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+.line-clamp-none {
+  -webkit-line-clamp: unset;
+}
+.hover\\:line-clamp-none:hover {
+  -webkit-line-clamp: unset;
+}
+@media (min-width: 640px) {
+  .sm\\:line-clamp-none {
+    -webkit-line-clamp: unset;
+  }
+}"
+`;
+
+exports[`line clamp plugin > works with prefix > line-clamp with prefix 1`] = `
+".windi-line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.windi-line-clamp-4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+.windi-line-clamp-none {
+  -webkit-line-clamp: unset;
+}
+@media (min-width: 640px) {
+  .sm\\:windi-line-clamp-none {
+    -webkit-line-clamp: unset;
+  }
+}
+@media (min-width: 768px) {
+  .md\\:windi-line-clamp-4 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+}"
+`;
