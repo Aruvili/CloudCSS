@@ -29,7 +29,7 @@ const dump = (file) => path.join(output_dir, file);
 
 const copy = (files) => files.forEach((file) => fs.copyFileSync(file, dump(file)));
 
-const rmdir = (dir) =>  fs.existsSync(dir) && fs.statSync(dir).isDirectory() && fs.rmdirSync(dir, { recursive: true });
+const rmdir = (dir) =>  fs.existsSync(dir) && fs.statSync(dir).isDirectory() && fs.rmSync(dir, { recursive: true });
 
 const mkdir = (dir) => !(fs.existsSync(dir) && fs.statSync(dir).isDirectory()) && fs.mkdirSync(dir);
 
@@ -59,6 +59,11 @@ const types = (dest = "index.d.ts", src = "../types/index", module = "*") => {
     },
   };
 };
+
+// Shared resolve config — preferBuiltins: true silences the url/util/events
+// warnings that come from polyfill packages in transitive dependencies.
+// Since all outputs target Node.js, we always want native built-ins.
+const nodeResolve = () => resolve({ preferBuiltins: true });
 
 export default [
   // main
@@ -195,7 +200,7 @@ export default [
     ],
     plugins: [
       ts_plugin,
-      resolve(),
+      nodeResolve(),
       pack('plugin'),
       types(`plugin/index.d.ts`, `../types/plugin/index`, "{ default }"),
     ],
@@ -214,7 +219,7 @@ export default [
       ],
       plugins: [
         ts_plugin,
-        resolve(),
+        nodeResolve(),
         commonjs(),
         types(`plugin/${dir}/index.d.ts`, `../../types/plugin/${dir}/index`, "{ default }"),
       ],
@@ -225,7 +230,7 @@ export default [
     input: 'src/cli/index.ts',
     output: [
       {
-        file: dump('cli/index.js'),
+        file: dump('cli/index.cjs'),
         banner: '#!/usr/bin/env node',
         format: 'cjs',
         paths: (id) =>
@@ -245,7 +250,7 @@ export default [
         __VERSION__: pkg.version,
       }),
       ts_plugin,
-      resolve(),
+      nodeResolve(),
       commonjs(),
     ],
   },
@@ -267,7 +272,7 @@ export default [
       plugins: [
         ts_plugin,
         json(),
-        resolve(),
+        nodeResolve(),
         commonjs(),
         pack(dir),
         types(`${dir}/index.d.ts`, `../types/${dir}/index`),
@@ -296,10 +301,24 @@ export default [
       plugins: [
         ts_plugin,
         json(),
-        resolve(),
+        nodeResolve(),
         commonjs(),
         pack(`utils/${dir}`),
         types(`utils/${dir}/index.d.ts`, `../../types/utils/${dir}/index`),
       ],
     })),
+
+  // postcss
+  {
+    input: 'src/postcss.ts',
+    output: [
+      {
+        file: 'postcss.cjs',
+        format: 'cjs',
+        exports: 'default',
+      },
+    ],
+    external: ['path', 'fs', 'module'],
+    plugins: [ts_plugin, nodeResolve(), commonjs(), json()],
+  },
 ];

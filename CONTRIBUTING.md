@@ -1,14 +1,14 @@
-# Contributing to windicss
+# Contributing to stormcss
 
 Thanks for your interest in contributing! Please read carefully through our guidelines below to ensure that your contribution adheres to our project's standards.
 
 ## Issue Tracking
 
-We use [GitHub Issues](https://github.com/windicss/windicss/issues) to track all tasks related to this project.
+We use [GitHub Issues](https://github.com/Aruvili/stormcss/issues) to track all tasks related to this project.
 
 ## Build the project locally
 
-In order to contribute to windicss, you must first get a copy of the project running locally on your computer.
+In order to contribute to stormcss, you must first get a copy of the project running locally on your computer.
 
 There are five steps to building this project:
 
@@ -22,9 +22,9 @@ There are five steps to building this project:
 
 All GitHub projects are backed by a version control software called _Git_. You'll need to [set up Git](https://github.com/danthareja/contribute-to-open-source/wiki/Setting-up-Git) in order to contribute to _any_ project on GitHub.
 
-This specific project is written in JavaScript and uses Node.js as it's runtime. You'll need to [install Node.js](https://nodejs.org/en/) in order to run the project.
+This specific project is written in TypeScript and uses Node.js as it's runtime. You'll need to [install Node.js](https://nodejs.org/en/) in order to run the project.
 
-### Fork the [repository](https://github.com/windicss/windicss.git)
+### Fork the [repository](https://github.com/Aruvili/stormcss.git)
 
 A _fork_ is a copy of a repository. Forking a repository lets you to make changes to your copy without affecting any of the original code.
 
@@ -35,7 +35,7 @@ Click **Fork** (in the top-right corner of the page) to copy this repository to 
 Use git to clone your fork to your computer.
 
 ```bash
-git clone https://github.com/${username}/windicss.git
+git clone https://github.com/${username}/stormcss.git
 ```
 
 ### Install dependencies
@@ -45,7 +45,7 @@ This project uses [pnpm](https://pnpm.js.org/), a command-line tool bundled with
 First, navigate into the project's directory
 
 ```bash
-cd windicss
+cd stormcss
 ```
 
 Next, use `pnpm` to install the project' dependencies
@@ -118,24 +118,24 @@ pnpm coverage
 To test the changes you made, you can use the [`playground`](./playground)
 project.
 
-1. In the windicss root project directory, run:
+1. In the stormcss root project directory, run:
 
     ```bash
     pnpm install
     ```
 
-2. In the first terminal, run `pnpm dev` in the windicss project directory, and in the
+2. In the first terminal, run `pnpm dev` in the stormcss project directory, and in the
    second one open the playground directory and run `pnpm dev`.
 
-    This would set up a watcher that would rebuild the `windi.css` file in the `playground`
-    directory every time you make a change in the windicss source code. You would need
+    This would set up a watcher that would rebuild the `storm.css` file in the `playground`
+    directory every time you make a change in the stormcss source code. You would need
     something like [Live
     Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) to
     see your changes in the browser.
 
 #### Development
 
-Open two editors, one with the windicss repo, one with your actual project.
+Open two editors, one with the stormcss repo, one with your actual project.
 
 ### Push your changes
 
@@ -147,12 +147,12 @@ git push origin fix-issue-123
 
 ### Open a Pull Request
 
-1. Find the [New Pull Request](https://github.com/windicss/windicss/compare) button
+1. Find the [New Pull Request](https://github.com/Aruvili/stormcss/compare) button
 2. Select the option to **compare across forks**
-3. Select **your fork**(${username}/windicss) in the `head repository` option
+3. Select **your fork**(${username}/stormcss) in the `head repository` option
 4. Select **your branch** in the `compare` option
 5. Click **Create Pull Request**
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under its [MIT license](https://github.com/windicss/windicss/blob/main/LICENSE).
+By contributing, you agree that your contributions will be licensed under its [MIT license](https://github.com/Aruvili/stormcss/blob/main/LICENSE).

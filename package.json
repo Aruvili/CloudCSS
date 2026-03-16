@@ -1,17 +1,20 @@
 {
-  "name": "windicss",
-  "version": "3.5.6",
+  "name": "stormcss",
+  "version": "1.0.0",
   "packageManager": "pnpm@10.32.1",
-  "description": "Next generation utility-first CSS framework.",
+  "description": "StormCSS - The revived next generation utility-first CSS framework.",
+  "type": "module",
   "main": "index.js",
   "module": "index.mjs",
   "types": "index.d.ts",
   "bin": {
-    "windicss": "cli/index.js"
+    "stormcss": "cli/index.cjs",
+    "storm": "cli/index.cjs"
   },
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
+    "build:prod": "cross-env NODE_ENV=production rollup -c",
     "test": "vitest run",
     "lint": "eslint \"src/**/*.ts\"",
     "coverage": "vitest run --coverage",
@@ -73,27 +76,32 @@
       "require": "./plugin/scroll-snap/index.js"
     },
     "./helpers": {
-      "import": "./helpers/index.mjs",
-      "require": "./helpers/index.js"
+      "import": "./dist/helpers/index.mjs",
+      "require": "./dist/helpers/index.js"
     },
     "./utils": {
-      "import": "./utils/index.mjs",
-      "require": "./utils/index.js"
+      "import": "./dist/utils/index.mjs",
+      "require": "./dist/utils/index.js"
     },
     "./utils/parser": {
-      "import": "./utils/parser/index.mjs",
-      "require": "./utils/parser/index.js"
+      "import": "./dist/utils/parser/index.mjs",
+      "require": "./dist/utils/parser/index.js"
     },
     "./utils/style": {
-      "import": "./utils/style/index.mjs",
-      "require": "./utils/style/index.js"
+      "import": "./dist/utils/style/index.mjs",
+      "require": "./dist/utils/style/index.js"
+    },
+    "./postcss": {
+      "import": "./postcss.cjs",
+      "require": "./postcss.cjs"
     }
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/windicss/windicss.git"
+    "url": "https://github.com/Aruvili/stormcss.git"
   },
   "keywords": [
+    "stormcss",
     "windicss",
     "tailwindcss",
     "css",
@@ -102,9 +110,9 @@
   "engines": {
     "node": ">= 18"
   },
-  "author": "Veritas Raven",
+  "author": "Aruvili",
   "license": "MIT",
-  "homepage": "https://github.com/windicss/windicss",
+  "homepage": "https://github.com/Aruvili/stormcss",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.2",
     "@rollup/plugin-json": "^6.1.0",
@@ -137,6 +145,7 @@
     "minimatch": "^10.2.4",
     "nyc": "^18.0.0",
     "picocolors": "^1.1.1",
+    "postcss": "^8.4.38",
     "rollup": "^4.59.0",
     "sucrase": "^3.35.1",
     "tosource": "^2.0.0-alpha.3",

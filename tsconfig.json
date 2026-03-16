@@ -2,7 +2,8 @@
   "compilerOptions": {
     "rootDir": ".",
     "baseUrl": ".",
-    "target": "es2024",
+    "target": "esnext",
+
     "module": "esnext",
     "moduleResolution": "node",
     "lib": ["dom", "es2024", "dom.iterable", "scripthost"],
@@ -12,8 +13,11 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "noEmit": true
   },
+
   "include": ["./src", "./test", "./test-dts", "./example"],
   "exclude": ["./test/assets", "./test/helpers", "dist"]
 }

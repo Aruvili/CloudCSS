@@ -1,85 +1,70 @@
-<p align="center" style="background-color: #FFFF99; padding: 15px; border-radius: 5px;">
-  <strong>⚠️ Windi CSS is Sunsetting ⚠️</strong><br>
-  We are sunsetting Windi CSS and we recommend new projects to seek for alternatives. Read the <a href="https://windicss.org/posts/sunsetting.html">full blog post</a>.
-</p>
-
-<hr>
-
-<h1 align="center">
-<a href="https://github.com/windicss/windicss/wiki">
-  <img src="https://next.windicss.org/assets/logo.svg" alt="Windi CSS Logo" height="120" width="120"/><br>
-</a>
-  Windi CSS
-</h1>
+# StormCSS ⚡️
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/windicss"><img src="https://img.shields.io/npm/v/windicss.svg?color=0EA5E9" alt="Npm Version"></a>
-  <a href="https://www.npmjs.com/package/windicss"><img src="https://img.shields.io/npm/dt/windicss.svg?color=1388bd" alt="Total Downloads"></a>
-  <a href="https://github.com/windicss/windicss/actions"><img src="https://img.shields.io/github/workflow/status/windicss/windicss/Node.js%20CI" alt="Build Status"></a>
-  <a href="https://codecov.io/gh/windicss/windicss"><img src="https://img.shields.io/codecov/c/github/windicss/windicss/dev.svg?sanitize=true" alt="Coverage"></a>
-  <br>
-  <a href="https://discord.gg/aRYWm8r8Eq"><img src="https://img.shields.io/badge/chat-discord-blue?style=flat&logo=discord&logoColor=white&label=&color=7289da" alt="Discord Chat"></a>
+  <img src="assets/stormcss.svg" alt="StormCSS Logo" width="600" />
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/stormcss"><img src="https://img.shields.io/npm/v/stormcss.svg?color=0EA5E9" alt="Npm Version"></a>
+  <a href="https://www.npmjs.com/package/stormcss"><img src="https://img.shields.io/npm/dt/stormcss.svg?color=1388bd" alt="Total Downloads"></a>
+  <a href="https://github.com/Aruvili/stormcss/actions"><img src="https://github.com/Aruvili/stormcss/actions/workflows/ci.yml/badge.svg" alt="Build Status"></a>
   <br>
 </p>
 
-<p align="center">Next generation utility-first CSS framework.</p>
 
-[windi css]: https://windicss.org
-[website]: https://windicss.org
-[video comparison]: https://twitter.com/antfu7/status/1361398324587163648
+<p align="center"><strong>Next generation utility-first CSS framework.</strong></p>
 
-## Why Windi CSS? 🤔
+---
 
-A quote from the author should illustrate his motivation to create [Windi CSS]:
+## Why StormCSS? 🤔
 
-> When my project became larger and there were about dozens of components, the initial compilation time reached 3s, and hot updates took more than 1s with Tailwind CSS. - [@voorjaar](https://github.com/voorjaar)
+The original motivation behind on-demand utility CSS was best captured by [@voorjaar](https://github.com/voorjaar), the creator of Windi CSS:
 
-By scanning your HTML and CSS and generating utilities on demand, [Windi CSS] is able to provide [faster load times][video comparison] and a speedy HMR in development, and does not require purging in production.
+> When my project became larger and there were about dozens of components, the initial compilation time reached 3s, and hot updates took more than 1s with Tailwind CSS.
 
-Read more about it in the [Introduction](https://windicss.org/guide/).
+StormCSS carries that vision forward. By scanning your HTML and CSS and generating utilities on demand, StormCSS delivers **blazing fast load times**, near-instant HMR in development, and requires **zero purging** in production — now actively maintained and evolving.
 
-## Integrations
+---
 
-Windi CSS provides first-class integrations for your favorite tools, select yours and get started.
+## Installation
 
-| Frameworks | Package | Version |
-| :-- | :-- | :-- |
-| CLI | [Built-in](https://windicss.org/guide/cli) | ![](https://img.shields.io/npm/v/windicss?label=&color=0EA5E9) |
-| VSCode Extension | [windicss-intellisense](https://github.com/windicss/windicss-intellisense) | ![](https://img.shields.io/visual-studio-marketplace/v/voorjaar.windicss-intellisense.svg?label=&color=1388bd) |
-| Vite | [vite-plugin-windicss](https://github.com/windicss/vite-plugin-windicss) | ![](https://img.shields.io/npm/v/vite-plugin-windicss?label=&color=0EA5E9) |
-| Rollup | [rollup-plugin-windicss](https://github.com/windicss/vite-plugin-windicss/tree/main/packages/rollup-plugin-windicss) | ![](https://img.shields.io/npm/v/rollup-plugin-windicss?label=&color=1388bd) |
-| Webpack | [windicss-webpack-plugin](https://github.com/windicss/windicss-webpack-plugin) | ![](https://img.shields.io/npm/v/windicss-webpack-plugin?label=&color=1388bd) |
-| Nuxt | [nuxt-windicss](https://github.com/windicss/nuxt-windicss-module) | ![](https://img.shields.io/npm/v/nuxt-windicss?label=&color=1388bd) |
-| Svelte | [svelte-windicss-preprocess](https://github.com/windicss/svelte-windicss-preprocess) | ![](https://img.shields.io/npm/v/svelte-windicss-preprocess?label=&color=1388bd) |
-| StencilJS | [stencil-windicss](https://github.com/codeperate/stencil-windicss)<sup>Community</sup> | ![](https://img.shields.io/npm/v/@codeperate/stencil-windicss?label=&color=1388bd) |
+Install StormCSS once — all framework integrations are included:
+
+```bash
+npm install stormcss
+# or
+pnpm install stormcss
+# or
+yarn add stormcss
+```
+
+
 
 ## Plugins 🛠
 
-Check out [plugins available for windicss](https://github.com/windicss/plugins).
+Community plugins coming soon. Want to build one? Open a discussion!
 
-## Documentation 📖
-
-Check [the documentation website][website].
-
-## Discussions
-
-We’re using [GitHub Discussions](https://github.com/windicss/windicss/discussions) as a place to connect with other members of our community. You are free to ask questions and share ideas, so enjoy yourself.
+---
 
 ## Contributing
 
-If you're interested in contributing to windicss, please read our [contributing docs](https://github.com/windicss/windicss/blob/main/CONTRIBUTING.md) **before submitting a pull request**.
+StormCSS is community-driven and contributions are what keep it alive. Please read our [Contributing Guide](CONTRIBUTING.md) before submitting a pull request.
 
-## Sponsors
+---
 
-<a href="https://opencollective.com/windicss" target="_blank">
-    <img src="https://opencollective.com/windicss/sponsors.svg">
-</a>
+## Discussions
 
-## Backers
-<a href="https://opencollective.com/windicss" target="_blank">
-    <img src="https://opencollective.com/windicss/backers.svg">
-</a>
+Have questions or ideas? Use [GitHub Discussions](https://github.com/Aruvili/stormcss/discussions) to connect with the community.
+
+---
+
+## Credits
+
+StormCSS is a community revival of **[Windi CSS](https://github.com/windicss/windicss)**, which was sunset in 2023. Full credit goes to [@voorjaar](https://github.com/voorjaar) and the original WindiCSS team — their groundbreaking work on on-demand utility generation is the foundation this project stands on.
+
+---
 
 ## License
 
-Distributed under the [MIT License](https://github.com/windicss/windicss/blob/main/LICENSE).
+Distributed under the [MIT License](LICENSE).  
+Original work © 2020–2021 Veritas Raven. Revived and maintained © 2025 Balapriyan / [Aruvili](https://github.com/Aruvili).
