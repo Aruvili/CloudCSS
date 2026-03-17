@@ -26,9 +26,9 @@ jobs:
       - run: pnpm install --no-frozen-lockfile
       - run: pnpm run build
       - run: pnpm test
-      - run: npm publish --access public
+      - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_SECRET}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - run: npx conventional-github-releaser -p angular
         env:
           CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{secrets.GITHUB_TOKEN}}
