@@ -1,3 +1,5 @@
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 import { Processor } from '../../src/lib';
 import { resolve } from 'path';
 import { pseudoClassNames } from '../../src/config/order';

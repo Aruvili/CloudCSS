@@ -1,3 +1,5 @@
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 import { resolve } from 'path';
 import { Processor } from '../../src/lib';
 

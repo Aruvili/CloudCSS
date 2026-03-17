@@ -1,3 +1,5 @@
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 import defaultConfig from '../../dist/defaultConfig';
 
 describe('defaultConfig interface test', () => {

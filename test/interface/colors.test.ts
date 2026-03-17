@@ -1,3 +1,5 @@
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 import colors from '../../dist/colors';
 
 describe('color interface test', () => {

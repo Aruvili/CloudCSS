@@ -11,7 +11,7 @@ export default class HTMLParser {
 
   parseAttrs(): Attr[] {
     if (!this.html) return [];
-    
+    this.html = this.html.replace(/\r\n/g, '\n');
 
 
     const output: Attr[] = [];
@@ -40,6 +40,7 @@ export default class HTMLParser {
 
   parseClasses(): ClassName[] {
     if (!this.html) return [];
+    this.html = this.html.replace(/\r\n/g, '\n');
 
 
 
@@ -51,7 +52,7 @@ export default class HTMLParser {
         const raw = match[0];
         const sep = raw.indexOf('=');
         let value: string| string[] = raw.slice(sep + 1).trim();
-        let start = match.index + sep + 1 + (this.html.slice(sep + 1).match(/[^'"]/)?.index ?? 0);
+        let start = match.index + raw.indexOf(value);
         let end = regex.lastIndex;
         let first = value.charAt(0);
         while (['"', '\'', '`', '{'].includes(first)) {
