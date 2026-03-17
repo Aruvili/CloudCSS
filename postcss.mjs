@@ -1,11 +1,11 @@
-import require$$0, { resolve, dirname } from 'path';
+import path$2, { resolve, dirname } from 'path';
 import fs$4, { existsSync, promises, statSync } from 'fs';
 import { createRequire } from 'module';
 import require$$3 from 'url';
-import require$$0$1 from 'os';
-import require$$0$2 from 'util';
-import require$$0$3 from 'stream';
-import require$$0$4 from 'events';
+import require$$0 from 'os';
+import require$$0$1 from 'util';
+import require$$0$2 from 'stream';
+import require$$0$3 from 'events';
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -5496,7 +5496,7 @@ function requirePreviousMap () {
 	hasRequiredPreviousMap = 1;
 
 	let { existsSync, readFileSync } = fs$4;
-	let { dirname, join } = require$$0;
+	let { dirname, join } = path$2;
 	let { SourceMapConsumer, SourceMapGenerator } = requireSourceMap();
 
 	function fromBase64(str) {
@@ -5648,7 +5648,7 @@ function requireInput () {
 	hasRequiredInput = 1;
 
 	let { nanoid } = /*@__PURE__*/ requireNonSecure();
-	let { isAbsolute, resolve } = require$$0;
+	let { isAbsolute, resolve } = path$2;
 	let { SourceMapConsumer, SourceMapGenerator } = requireSourceMap();
 	let { fileURLToPath, pathToFileURL } = require$$3;
 
@@ -6152,7 +6152,7 @@ function requireMapGenerator () {
 	if (hasRequiredMapGenerator) return mapGenerator;
 	hasRequiredMapGenerator = 1;
 
-	let { dirname, relative, resolve, sep } = require$$0;
+	let { dirname, relative, resolve, sep } = path$2;
 	let { SourceMapConsumer, SourceMapGenerator } = requireSourceMap();
 	let { pathToFileURL } = require$$3;
 
@@ -21667,8 +21667,8 @@ function requirePath () {
 	hasRequiredPath = 1;
 	Object.defineProperty(path$1, "__esModule", { value: true });
 	path$1.convertPosixPathToPattern = path$1.convertWindowsPathToPattern = path$1.convertPathToPattern = path$1.escapePosixPath = path$1.escapeWindowsPath = path$1.escape = path$1.removeLeadingDotSegment = path$1.makeAbsolute = path$1.unixify = void 0;
-	const os = require$$0$1;
-	const path = require$$0;
+	const os = require$$0;
+	const path = path$2;
 	const IS_WINDOWS_PLATFORM = os.platform() === 'win32';
 	const LEADING_DOT_SEGMENT_CHARACTERS_COUNT = 2; // ./ or .\\
 	/**
@@ -21933,8 +21933,8 @@ function requireGlobParent () {
 	hasRequiredGlobParent = 1;
 
 	var isGlob = requireIsGlob();
-	var pathPosixDirname = require$$0.posix.dirname;
-	var isWin32 = require$$0$1.platform() === 'win32';
+	var pathPosixDirname = path$2.posix.dirname;
+	var isWin32 = require$$0.platform() === 'win32';
 
 	var slash = '/';
 	var backslash = /\\/g;
@@ -22483,7 +22483,7 @@ function requireFillRange () {
 	if (hasRequiredFillRange) return fillRange;
 	hasRequiredFillRange = 1;
 
-	const util = require$$0$2;
+	const util = require$$0$1;
 	const toRegexRange = requireToRegexRange();
 
 	const isObject = val => val !== null && typeof val === 'object' && !Array.isArray(val);
@@ -23505,7 +23505,7 @@ function requireConstants$1 () {
 	if (hasRequiredConstants$1) return constants$1;
 	hasRequiredConstants$1 = 1;
 
-	const path = require$$0;
+	const path = path$2;
 	const WIN_SLASH = '\\\\/';
 	const WIN_NO_SLASH = `[^${WIN_SLASH}]`;
 
@@ -23692,7 +23692,7 @@ function requireUtils$2 () {
 	hasRequiredUtils$2 = 1;
 	(function (exports$1) {
 
-		const path = require$$0;
+		const path = path$2;
 		const win32 = process.platform === 'win32';
 		const {
 		  REGEX_BACKSLASH,
@@ -25263,7 +25263,7 @@ function requirePicomatch$1 () {
 	if (hasRequiredPicomatch$1) return picomatch_1;
 	hasRequiredPicomatch$1 = 1;
 
-	const path = require$$0;
+	const path = path$2;
 	const scan = requireScan();
 	const parse = requireParse();
 	const utils = requireUtils$2();
@@ -25624,7 +25624,7 @@ function requireMicromatch () {
 	if (hasRequiredMicromatch) return micromatch_1;
 	hasRequiredMicromatch = 1;
 
-	const util = require$$0$2;
+	const util = require$$0$1;
 	const braces = requireBraces();
 	const picomatch = requirePicomatch();
 	const utils = requireUtils$2();
@@ -26106,7 +26106,7 @@ function requirePattern () {
 	hasRequiredPattern = 1;
 	Object.defineProperty(pattern, "__esModule", { value: true });
 	pattern.isAbsolute = pattern.partitionAbsoluteAndRelative = pattern.removeDuplicateSlashes = pattern.matchAny = pattern.convertPatternsToRe = pattern.makeRe = pattern.getPatternParts = pattern.expandBraceExpansion = pattern.expandPatternsWithBraceExpansion = pattern.isAffectDepthOfReadingPattern = pattern.endsWithSlashGlobStar = pattern.hasGlobStar = pattern.getBaseDirectory = pattern.isPatternRelatedToParentDirectory = pattern.getPatternsOutsideCurrentDirectory = pattern.getPatternsInsideCurrentDirectory = pattern.getPositivePatterns = pattern.getNegativePatterns = pattern.isPositivePattern = pattern.isNegativePattern = pattern.convertToNegativePattern = pattern.convertToPositivePattern = pattern.isDynamicPattern = pattern.isStaticPattern = void 0;
-	const path = require$$0;
+	const path = path$2;
 	const globParent = requireGlobParent();
 	const micromatch = requireMicromatch();
 	const GLOBSTAR = '**';
@@ -26327,7 +26327,7 @@ function requireMerge2 () {
 	 * Copyright (c) 2014-2020 Teambition
 	 * Licensed under the MIT license.
 	 */
-	const Stream = require$$0$3;
+	const Stream = require$$0$2;
 	const PassThrough = Stream.PassThrough;
 	const slice = Array.prototype.slice;
 
@@ -27212,7 +27212,7 @@ function requireSettings$2 () {
 	if (hasRequiredSettings$2) return settings$2;
 	hasRequiredSettings$2 = 1;
 	Object.defineProperty(settings$2, "__esModule", { value: true });
-	const path = require$$0;
+	const path = path$2;
 	const fsStat = requireOut$3();
 	const fs = requireFs();
 	class Settings {
@@ -27732,7 +27732,7 @@ function requireAsync$3 () {
 	if (hasRequiredAsync$3) return async$2;
 	hasRequiredAsync$3 = 1;
 	Object.defineProperty(async$2, "__esModule", { value: true });
-	const events_1 = require$$0$4;
+	const events_1 = require$$0$3;
 	const fsScandir = requireOut$2();
 	const fastq = requireQueue();
 	const common = requireCommon();
@@ -27875,7 +27875,7 @@ function requireStream$2 () {
 	if (hasRequiredStream$2) return stream$2;
 	hasRequiredStream$2 = 1;
 	Object.defineProperty(stream$2, "__esModule", { value: true });
-	const stream_1 = require$$0$3;
+	const stream_1 = require$$0$2;
 	const async_1 = requireAsync$3();
 	class StreamProvider {
 	    constructor(_root, _settings) {
@@ -28009,7 +28009,7 @@ function requireSettings$1 () {
 	if (hasRequiredSettings$1) return settings$1;
 	hasRequiredSettings$1 = 1;
 	Object.defineProperty(settings$1, "__esModule", { value: true });
-	const path = require$$0;
+	const path = path$2;
 	const fsScandir = requireOut$2();
 	class Settings {
 	    constructor(_options = {}) {
@@ -28085,7 +28085,7 @@ function requireReader () {
 	if (hasRequiredReader) return reader;
 	hasRequiredReader = 1;
 	Object.defineProperty(reader, "__esModule", { value: true });
-	const path = require$$0;
+	const path = path$2;
 	const fsStat = requireOut$3();
 	const utils = requireUtils$1();
 	class Reader {
@@ -28127,7 +28127,7 @@ function requireStream$1 () {
 	if (hasRequiredStream$1) return stream$1;
 	hasRequiredStream$1 = 1;
 	Object.defineProperty(stream$1, "__esModule", { value: true });
-	const stream_1 = require$$0$3;
+	const stream_1 = require$$0$2;
 	const fsStat = requireOut$3();
 	const fsWalk = requireOut$1();
 	const reader_1 = requireReader();
@@ -28558,7 +28558,7 @@ function requireProvider () {
 	if (hasRequiredProvider) return provider;
 	hasRequiredProvider = 1;
 	Object.defineProperty(provider, "__esModule", { value: true });
-	const path = require$$0;
+	const path = path$2;
 	const deep_1 = requireDeep();
 	const entry_1 = requireEntry$1();
 	const error_1 = requireError();
@@ -28645,7 +28645,7 @@ function requireStream () {
 	if (hasRequiredStream) return stream;
 	hasRequiredStream = 1;
 	Object.defineProperty(stream, "__esModule", { value: true });
-	const stream_1 = require$$0$3;
+	const stream_1 = require$$0$2;
 	const stream_2 = requireStream$1();
 	const provider_1 = requireProvider();
 	class ProviderStream extends provider_1.default {
@@ -28772,7 +28772,7 @@ function requireSettings () {
 		Object.defineProperty(exports$1, "__esModule", { value: true });
 		exports$1.DEFAULT_FILE_SYSTEM_ADAPTER = void 0;
 		const fs = fs$4;
-		const os = require$$0$1;
+		const os = require$$0;
 		/**
 		 * The `os.cpus` method can return zero. We expect the number of cores to be greater than zero.
 		 * https://github.com/nodejs/node/blob/7faeddf23a98c53896f8b574a6e66589e8fb1eb8/lib/os.js#L106-L107
@@ -31460,7 +31460,7 @@ function cloudcssPlugin(options = {}) {
         registerDependency({
           type: 'dependency',
           plugin: 'cloudcss',
-          file: require$$0.normalize(_resolvedConfigFile),
+          file: path$2.normalize(_resolvedConfigFile),
         });
       }
 
@@ -31483,7 +31483,7 @@ function cloudcssPlugin(options = {}) {
         registerDependency({
           type: 'dependency',
           plugin: 'cloudcss',
-          file: require$$0.normalize(file),
+          file: path$2.normalize(file),
         });
         watchedDirs.add(dirname(file));
       }
@@ -31492,8 +31492,8 @@ function cloudcssPlugin(options = {}) {
         registerDependency({
           type: 'dir-dependency',
           plugin: 'cloudcss',
-          dir: require$$0.normalize(dir),  // Standard PostCSS expectation
-          file: require$$0.normalize(dir), // 🚨 THE FIX: Satisfies Turbopack's generic buggy bridge
+          dir: path$2.normalize(dir),  // Standard PostCSS expectation
+          file: path$2.normalize(dir), // 🚨 THE FIX: Satisfies Turbopack's generic buggy bridge
           glob: '**/*',              // Safe fallback for other bundlers
         });
       }

@@ -10,6 +10,7 @@ import {
   globArray,
   generateTemplate,
   fuzzy,
+  initializeProject,
 } from './utils';
 import type { Extractor } from '../interfaces';
 
@@ -43,7 +44,7 @@ Options:
 
   --style               Parse and transform cloud style block.
   --layer               Wrap the output CSS in standard @layer directives (base, components, utilities).
-  --init PATH           Start a new project on the path.
+  --init                Initialize CloudCSS in the current project (auto-detects framework).
 `;
 
 const args = arg({
@@ -61,7 +62,7 @@ const args = arg({
   '--fuzzy': Boolean,
   '--style': Boolean,
   '--layer': Boolean,
-  '--init': String,
+  '--init': Boolean,
   '--prefix': String,
   '--output': String,
   '--config': String,
@@ -94,10 +95,9 @@ if (args['--version']) {
 }
 
 if (args['--init']) {
-  const template = generateTemplate(args['--init'], args['--output']);
-  args._.push(template.html);
-  args['--preflight'] = true;
-  args['--output'] = template.css;
+  const result = initializeProject(process.cwd());
+  Console.log(result.message);
+  process.exit(result.success ? 0 : 1);
 }
 
 const configFile = args['--config'] ? resolve(args['--config']) : undefined;
