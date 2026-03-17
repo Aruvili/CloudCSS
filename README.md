@@ -1,73 +1,173 @@
-# CloudCSS ⚡️
+# ☁️ CloudCSS
 
 <p align="center">
-  <img src="assets/CloudCSS_logo.svg" alt="cloudCSS Logo" width="600"/>
+  <img src="assets/CloudCSS_logo.svg" alt="CloudCSS Logo" width="500"/>
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@aruvili/cloudcss"><img src="https://img.shields.io/npm/v/cloudcss.svg?color=0EA5E9" alt="Npm Version"></a>
-  <a href="https://www.npmjs.com/package/@aruvili/cloudcss"><img src="https://img.shields.io/npm/dt/cloudcss.svg?color=1388bd" alt="Total Downloads"></a>
-  <br>
+  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=22&pause=1000&color=0EA5E9&center=true&vCenter=true&width=600&lines=Next-gen+Utility-First+CSS;On-demand+CSS+Engine;Blazing+Fast+DX;Zero+Config+Zero+Purge" />
 </p>
 
 
-<p align="center"><strong>Next generation utility-first CSS framework.</strong></p>
 
----
+<p align="center">
+  <a href="https://www.npmjs.com/package/@aruvili/cloudcss">
+    <img src="https://img.shields.io/npm/v/@aruvili/cloudcss?style=for-the-badge&labelColor=0b1220&color=0EA5E9"/>
+  </a>
+  <a href="https://www.npmjs.com/package/@aruvili/cloudcss">
+    <img src="https://img.shields.io/npm/dt/@aruvili/cloudcss?style=for-the-badge&labelColor=0b1220&color=1388bd"/>
+  </a>
+  <img src="https://img.shields.io/badge/Zero_Config-Ready-22c55e?style=for-the-badge&labelColor=0b1220"/>
+</p>
 
-## Why CloudCSS? 🤔
+<p align="center">
+  <strong>Build faster. Ship lighter. Style smarter.</strong>
+</p>
 
-The original motivation behind on-demand utility CSS was best captured by [@voorjaar](https://github.com/voorjaar), the creator of Windi CSS:
 
-> When my project became larger and there were about dozens of components, the initial compilation time reached 3s, and hot updates took more than 1s with Tailwind CSS.
+<!-- INLINE GRADIENT HEADER -->
 
-cloudCSS carries that vision forward. By scanning your HTML and CSS and generating utilities on demand, CloudCSS delivers **blazing fast load times**, near-instant HMR in development, and requires **zero purging** in production — now actively maintained and evolving.
+<p align="center">
+  <svg width="100%" height="6" viewBox="0 0 800 6" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="grad1">
+        <stop offset="0%" stop-color="#0EA5E9"/>
+        <stop offset="50%" stop-color="#22c55e"/>
+        <stop offset="100%" stop-color="#6366f1"/>
+      </linearGradient>
+    </defs>
+    <rect width="800" height="6" fill="url(#grad1)" />
+  </svg>
+</p>
 
----
 
-## Installation
+## Why CloudCSS
 
-Install CloudCSS once — all framework integrations are included:
+> Inspired by the original vision of Windi CSS
+
+* No large pre-generated CSS bundles
+* No purge step in production
+* No configuration overhead
+* Generate styles only when used
+
+```diff
+- Traditional CSS: Write everything manually
+- Tailwind: Pre-generate everything
++ CloudCSS: Generate only what you use
+```
+
+
+<p align="center">
+  <svg width="100%" height="6" viewBox="0 0 800 6" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="grad2">
+        <stop offset="0%" stop-color="#6366f1"/>
+        <stop offset="50%" stop-color="#0EA5E9"/>
+        <stop offset="100%" stop-color="#22c55e"/>
+      </linearGradient>
+    </defs>
+    <rect width="800" height="6" fill="url(#grad2)" />
+  </svg>
+</p>
+
+
+## Quick Start
+
+### Installation
 
 ```bash
 npm install @aruvili/cloudcss -D
 ```
-# or
+
 ```bash
 pnpm install @aruvili/cloudcss -D
 ```
-# or
+
 ```bash
 yarn add @aruvili/cloudcss -D
 ```
 
 
+### Initialization
 
-## Plugins 🛠
+```bash
+npx cloud --init
+```
 
-Community plugins coming soon. Want to build one? Open a discussion!
+* Detects framework automatically
+* Injects required configuration
+* Prepares development environment
 
----
 
-## Contributing
+### Usage
 
-CloudCSS is community-driven and contributions are what keep it alive. Please read our [Contributing Guide](CONTRIBUTING.md) before submitting a pull request.
+```html
+<div class="p-4 text-blue-500 hover:bg-gray-100">
+  Hello CloudCSS
+</div>
+```
 
----
 
-## Discussions
+<p align="center">
+  <svg width="100%" height="6" viewBox="0 0 800 6" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="grad3">
+        <stop offset="0%" stop-color="#22c55e"/>
+        <stop offset="50%" stop-color="#0EA5E9"/>
+        <stop offset="100%" stop-color="#6366f1"/>
+      </linearGradient>
+    </defs>
+    <rect width="800" height="6" fill="url(#grad3)" />
+  </svg>
+</p>
 
-Have questions or ideas? Use [GitHub Discussions](https://github.com/Aruvili/cloudcss/discussions) to connect with the community.
 
----
+## Features
+
+| Capability        | Description                       |
+| ----------------- | --------------------------------- |
+| On-demand engine  | Generates only required utilities |
+| Instant HMR       | Near-zero latency updates         |
+| No purge step     | Automatic production optimization |
+| Smart scanning    | HTML and CSS aware parsing        |
+| Framework support | Next, Vite, Vue, Svelte           |
+
+
+## CLI
+
+```bash
+npx cloud --init
+npx cloud --watch
+npx cloud --build
+```
+
+
+## Ecosystem
+
+* Plugin system (in progress)
+* Community-driven development
+
+Discussion:
+[https://github.com/Aruvili/cloudcss/discussions](https://github.com/Aruvili/cloudcss/discussions)
+
 
 ## Credits
 
-CloudCSS is a community revival of **[Windi CSS](https://github.com/windicss/windicss)**, which was sunset in 2023. Full credit goes to [@voorjaar](https://github.com/voorjaar) and the original WindiCSS team — their groundbreaking work on on-demand utility generation is the foundation this project stands on.
+CloudCSS builds on the foundation of Windi CSS.
 
----
 
 ## License
 
-Distributed under the [MIT License](LICENSE).  
-Original work © 2020–2021 Veritas Raven. Revived and maintained © 2025 Balapriyan / [Aruvili](https://github.com/Aruvili).
+MIT License
+Aruvili / Balapriyan
+
+
+## Support
+
+<p align="center">
+  <a href="https://github.com/Aruvili/cloudcss">
+    <img src="https://img.shields.io/badge/Star_Repository-Support_Project-0EA5E9?style=for-the-badge&labelColor=0b1220"/>
+  </a>
+</p>
+
+
