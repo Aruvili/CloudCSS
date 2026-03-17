@@ -5,9 +5,8 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/cloudcss"><img src="https://img.shields.io/npm/v/cloudcss.svg?color=0EA5E9" alt="Npm Version"></a>
-  <a href="https://www.npmjs.com/package/cloudcss"><img src="https://img.shields.io/npm/dt/cloudcss.svg?color=1388bd" alt="Total Downloads"></a>
-  <a href="https://github.com/Aruvili/cloudcss/actions"><img src="https://github.com/Aruvili/cloudcss/actions/workflows/ci.yml/badge.svg" alt="Build Status"></a>
+  <a href="https://www.npmjs.com/package/@aruvili/cloudcss"><img src="https://img.shields.io/npm/v/cloudcss.svg?color=0EA5E9" alt="Npm Version"></a>
+  <a href="https://www.npmjs.com/package/@aruvili/cloudcss"><img src="https://img.shields.io/npm/dt/cloudcss.svg?color=1388bd" alt="Total Downloads"></a>
   <br>
 </p>
 
@@ -31,11 +30,15 @@ cloudCSS carries that vision forward. By scanning your HTML and CSS and generati
 Install CloudCSS once — all framework integrations are included:
 
 ```bash
-npm install cloudcss
+npm install @aruvili/cloudcss -D
+```
 # or
-pnpm install cloudcss
+```bash
+pnpm install @aruvili/cloudcss -D
+```
 # or
-yarn add cloudcss
+```bash
+yarn add @aruvili/cloudcss -D
 ```
 
 

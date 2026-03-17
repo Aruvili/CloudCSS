@@ -185,7 +185,7 @@ export function detectAppDirectory(projectRoot: string, framework: Framework): s
  * Used both when creating a fresh config and when replacing an existing
  * Tailwind-based one.
  */
-const POSTCSS_CLOUDCSS_TEMPLATE = `import path from 'path';\n\nexport default {\n  plugins: {\n    'cloudcss/postcss': {\n      config: path.resolve('./cloud.config.cjs'),\n    },\n  },\n};\n`;
+const POSTCSS_CLOUDCSS_TEMPLATE = `import path from 'path';\n\nexport default {\n  plugins: {\n    '@Aruvili/cloudcss/postcss': {\n      config: path.resolve('./cloud.config.cjs'),\n    },\n  },\n};\n`;
 
 /**
  * All PostCSS config filenames we recognise (checked in priority order).
@@ -343,7 +343,11 @@ export function initializeProject(
     const cssFilePath = path.join(appDirPath, cssFileName);
     if (!fs.existsSync(cssFilePath)) {
       // File doesn't exist — create it with the directive.
-      fs.writeFileSync(cssFilePath, `@cloudcss;\n`);
+      fs.writeFileSync(cssFilePath, `@cloudcss;\n html{
+    background-color: black;
+    border: 0;
+    margin: 0;
+}`);
       messages.push(`✓ CSS file created at ${cssFilePath}`);
     } else {
       // File exists — check if @cloudcss; is already present.
@@ -381,9 +385,9 @@ export function initializeProject(
       }
 
       // Add cloudcss if missing.
-      if (!pkg.devDependencies['cloudcss'] && !pkg.dependencies?.['cloudcss']) {
-        pkg.devDependencies['cloudcss'] = '^1.0.0';
-        addedDeps.push('cloudcss');
+      if (!pkg.devDependencies['@aruvili/cloudcss'] && !pkg.dependencies?.['@aruvili/cloudcss']) {
+        pkg.devDependencies['@aruvili/cloudcss'] = '^1.0.0';
+        addedDeps.push('@aruvili/cloudcss');
       }
 
       // Only write if something actually changed.
