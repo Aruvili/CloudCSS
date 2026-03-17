@@ -2,15 +2,15 @@ import { createRequire } from 'module';
 
 export function convert(code: string): string {
   const map = {
-    '@tailwindcss\\/typography': 'windicss/plugin/typography',
-    '@tailwindcss\\/forms': 'windicss/plugin/forms',
-    '@tailwindcss\\/aspect-ratio': 'windicss/plugin/aspect-ratio',
-    '@tailwindcss\\/line-clamp': 'windicss/plugin/line-clamp',
-    'tailwindcss\\/plugin': 'windicss/plugin',
-    'tailwindcss\\/colors': 'windicss/colors',
-    'tailwindcss\\/resolveConfig': 'windicss/resolveConfig',
-    'tailwindcss\\/defaultConfig': 'windicss/defaultConfig',
-    'tailwindcss\\/defaultTheme': 'windicss/defaultTheme',
+    '@tailwindcss\\/typography': 'cloudcss/plugin/typography',
+    '@tailwindcss\\/forms': 'cloudcss/plugin/forms',
+    '@tailwindcss\\/aspect-ratio': 'cloudcss/plugin/aspect-ratio',
+    '@tailwindcss\\/line-clamp': 'cloudcss/plugin/line-clamp',
+    'tailwindcss\\/plugin': 'cloudcss/plugin',
+    'tailwindcss\\/colors': 'cloudcss/colors',
+    'tailwindcss\\/resolveConfig': 'cloudcss/resolveConfig',
+    'tailwindcss\\/defaultConfig': 'cloudcss/defaultConfig',
+    'tailwindcss\\/defaultTheme': 'cloudcss/defaultTheme',
   };
   for (const [key, value] of Object.entries(map)) {
     code = code.replace(new RegExp(key, 'g'), value);

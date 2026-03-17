@@ -5,8 +5,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'windi-dark': '#171717',
-        'windi-blue': '#48b0f1',
+        'cloud-dark': '#171717',
+        'cloud-blue': '#48b0f1',
       },
     },
   },

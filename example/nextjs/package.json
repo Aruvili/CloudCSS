@@ -1,5 +1,5 @@
 {
-  "name": "stormcss-nextjs",
+  "name": "cloudcss-nextjs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -20,7 +20,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "postcss": "^8",
-    "stormcss": "1.0.0",
+    "cloudcss": "link:../..",
     "typescript": "^5"
   }
 }

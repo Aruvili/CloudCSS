@@ -13,18 +13,18 @@ import {
 } from './utils';
 import type { Extractor } from '../interfaces';
 
-const doc = `Generate css from text files that containing storm css classes.
+const doc = `Generate css from text files that containing cloud css classes.
 By default, it will use interpretation mode to generate a single css file.
 
 Usage:
-  stormcss [filenames]
-  stormcss [filenames] -c -m -d
-  stormcss [filenames] -c -s -m -d
-  stormcss [filenames] [-c | -i] [-a] [-b | -s] [-m] [-d] [-p <prefix:string>] [-o <path:string>] [--args arguments]
+  cloudcss [filenames]
+  cloudcss [filenames] -c -m -d
+  cloudcss [filenames] -c -s -m -d
+  cloudcss [filenames] [-c | -i] [-a] [-b | -s] [-m] [-d] [-p <prefix:string>] [-o <path:string>] [--args arguments]
 
 Options:
   -h, --help            Print this help message and exit.
-  -v, --version         Print stormcss current version and exit.
+  -v, --version         Print cloudcss current version and exit.
 
   -i, --interpret       Interpretation mode, generate class selectors. This is the default behavior.
   -c, --compile         Compilation mode, combine the class name in each row into a single class.
@@ -37,11 +37,11 @@ Options:
   -d, --dev             Enable hot reload and watch mode.
   -m, --minify          Generate minimized css file.
   -z, --fuzzy           Enable fuzzy match, only works in interpration mode.
-  -p, --prefix PREFIX   Set the css class name prefix, only valid in compilation mode. The default prefix is 'storm-'.
+  -p, --prefix PREFIX   Set the css class name prefix, only valid in compilation mode. The default prefix is 'cloud-'.
   -o, --output PATH     Set output css file path.
   -f, --config PATH     Set config file path.
 
-  --style               Parse and transform storm style block.
+  --style               Parse and transform cloud style block.
   --layer               Wrap the output CSS in standard @layer directives (base, components, utilities).
   --init PATH           Start a new project on the path.
 `;
@@ -110,7 +110,7 @@ if (configFile) Console.log('Config file:', configFile);
 
 function compile(files: string[]) {
   // compilation mode
-  const prefix = args['--prefix'] ?? 'storm-';
+  const prefix = args['--prefix'] ?? 'cloud-';
   files.forEach((file) => {
     let indexStart = 0;
     const outputStyle: StyleSheet[] = [];
@@ -136,7 +136,7 @@ function compile(files: string[]) {
     );
     styleSheets[file] = args['--dev'] ? (styleSheets[file]? styleSheets[file].extend(added) : added) : added;
 
-    const outputFile = file.replace(/(?=\.\w+$)/, '.windi');
+    const outputFile = file.replace(/(?=\.\w+$)/, '.cloud');
     try {
       writeFile(outputFile, outputHTML.join(''), () => null);
       Console.log(`${file} -> ${outputFile}`);
@@ -228,7 +228,7 @@ function attributify(files: string[]) {
 function styleBlock(files: string[]) {
   files.forEach((file) => {
     const content = readFileSync(file).toString();
-    const block = content.match(/(?<=<style[\r\n]*\s*lang\s?=\s?['"]windi["']>)[\s\S]*(?=<\/style>)/);
+    const block = content.match(/(?<=<style[\r\n]*\s*lang\s?=\s?['"]cloud["']>)[\s\S]*(?=<\/style>)/);
     if (block && block.index) {
       const css = content.slice(block.index, block.index + block[0].length);
       const parser = new CSSParser(css, processor);
@@ -247,7 +247,7 @@ function build(files: string[], update = false) {
   if (args['--style']) styleBlock(files);
   if (args['--separate']) {
     for (const [file, sheet] of Object.entries(styleSheets)) {
-      const outfile = file.replace(/\.\w+$/, '.storm.css');
+      const outfile = file.replace(/\.\w+$/, '.cloud.css');
       writeFile(outfile, (args['--preflight'] ? deepCopy(sheet).extend(preflights[file], false) : sheet).build(args['--minify'], args['--layer']), () => null);
       Console.log(`${file} -> ${outfile}`);
     }
@@ -270,7 +270,7 @@ function build(files: string[], update = false) {
         .sort()
         .combine()
         .extend(outputStyle);
-    const filePath = args['--output'] ?? 'storm.css';
+    const filePath = args['--output'] ?? 'cloud.css';
     const dir = dirname(filePath);
     if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
     writeFile(filePath, outputStyle.build(args['--minify'], args['--layer']), () => null);

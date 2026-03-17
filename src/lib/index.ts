@@ -553,7 +553,7 @@ export class Processor {
 
   compile(
     classNames: string,
-    prefix = 'storm-',
+    prefix = 'cloud-',
     showComment = false,
     ignoreGenerated = false,
     handleIgnored?: (ignored:string) => Style | Style[] | undefined,

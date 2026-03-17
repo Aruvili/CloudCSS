@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Compilation Mode > compile > css 1`] = `
-".storm-sarsyj {
+".cloud-sarsyj {
   --tw-bg-opacity: 1;
   background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
@@ -10,15 +10,15 @@ exports[`Compilation Mode > compile > css 1`] = `
   color: rgba(110, 231, 183, var(--tw-text-opacity));
 }
 @media (min-width: 640px) {
-  .storm-sarsyj {
+  .cloud-sarsyj {
     --tw-bg-opacity: 1;
     background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
   }
-  .storm-sarsyj:hover {
+  .cloud-sarsyj:hover {
     --tw-bg-opacity: 1;
     background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
   }
-  .dark .storm-sarsyj:hover {
+  .dark .cloud-sarsyj:hover {
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
@@ -26,16 +26,16 @@ exports[`Compilation Mode > compile > css 1`] = `
 `;
 
 exports[`Compilation Mode > compile important > important 1`] = `
-".storm-17we48r:hover {
+".cloud-17we48r:hover {
   --tw-bg-opacity: 1 !important;
   background-color: rgba(239, 68, 68, var(--tw-bg-opacity)) !important;
   padding: 1rem !important;
 }
-.storm-17we48r:focus {
+.cloud-17we48r:focus {
   border-width: 1px !important;
   float: right;
 }
-.storm-17we48r {
+.cloud-17we48r {
   font-weight: 700;
   --tw-text-opacity: 1 !important;
   color: rgba(110, 231, 183, var(--tw-text-opacity)) !important;
@@ -43,7 +43,7 @@ exports[`Compilation Mode > compile important > important 1`] = `
 `;
 
 exports[`Compilation Mode > compile order > css 1`] = `
-".storm-1kiu5fv {
+".cloud-1kiu5fv {
   position: relative;
   position: fixed;
 }"

@@ -88,6 +88,18 @@ export default [
       rmdir(output_dir),
       mkdir(output_dir),
       copy(['package.json', 'README.md', 'LICENSE']),
+      {
+        writeBundle() {
+          const pkgPath = dump('package.json');
+          const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+          if (pkg.bin) {
+            for (const key in pkg.bin) {
+              pkg.bin[key] = pkg.bin[key].replace(/^dist\//, '');
+            }
+            fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
+          }
+        },
+      },
       types("index.d.ts", "./types/lib", "{ Processor as default }"),
     ],
   },
@@ -315,6 +327,11 @@ export default [
       {
         file: 'postcss.cjs',
         format: 'cjs',
+        exports: 'default',
+      },
+      {
+        file: 'postcss.mjs',
+        format: 'esm',
         exports: 'default',
       },
     ],

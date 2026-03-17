@@ -41,7 +41,7 @@ export function fuzzy(content: string): string[] {
 
 export function generateTemplate(
   folder: string,
-  outputPath = 'storm.css'
+  outputPath = 'cloud.css'
 ): { html: string; css: string } {
   if (!(fs.existsSync(folder) && fs.lstatSync(folder).isDirectory())) {
     fs.mkdirSync(folder);

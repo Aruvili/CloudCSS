@@ -7,7 +7,7 @@ describe('Compilation Mode', () => {
     const result = processor.compile(
       'font-bold \n\ttext-green-300 \nsm:dark:hover:text-lg sm:(bg-gray-100 hover:bg-gray-200) abc bg-cool-gray-300 bg-hex-fff'
     );
-    expect(result.className).toBe('storm-sarsyj');
+    expect(result.className).toBe('cloud-sarsyj');
     expect(result.ignored).toEqual(['abc']);
     expect(result.success).toEqual([
       'font-bold',

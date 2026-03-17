@@ -12,16 +12,16 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install pnpm
         uses: pnpm/action-setup@v2
-      - name: Set node ${{ matrix.node-version }}
+      - name: Set node
         uses: actions/setup-node@v3
         with:
           registry-url: https://registry.npmjs.org/
-          node-version: ${{ matrix.node-version }}
+          node-version: 20
           cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm build:prod
-      - run: pnpm test
-      - run: cd dist && npm publish
+      - run: pnpm install --no-frozen-lockfile
+      - run: pnpm run build
+      - run: pnpm run test
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_SECRET}}
       - run: npx conventional-github-releaser -p angular

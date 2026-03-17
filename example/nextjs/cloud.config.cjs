@@ -1,6 +1,6 @@
-export default {
+module.exports = {
   extract: {
-    include: ['src/**/*.{vue,html,jsx,tsx,ts}'],
+    include: ['app/**/*.{vue,html,jsx,tsx,ts}'],
     exclude: ['node_modules', '.git', '.next'],
   },
   theme: {

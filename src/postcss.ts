@@ -13,12 +13,12 @@ const _require = createRequire(import.meta.url);
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-interface StormCSSOptions {
+interface cloudCSSOptions {
   config?: string;
   minify?: boolean;
 }
 
-interface StormCSSConfig {
+interface cloudCSSConfig {
   extract?: {
     include?: string[];
     exclude?: string[];
@@ -26,16 +26,21 @@ interface StormCSSConfig {
   preflight?: boolean;
 }
 
-// ─── Processor cache ──────────────────────────────────────────────────────────
+interface FileCacheEntry {
+  mtime: number;
+  content: string;
+  utilityStyleSheet: any; // Replace 'any' with the actual type returned by processor.interpret()
+}
+
+// ─── State & Caching ──────────────────────────────────────────────────────────
 
 let _processor: Processor | null = null;
 let _lastConfigMtime = 0;
 let _resolvedConfigFile: string | undefined;
 
-/**
- * Returns a Processor, rebuilding it only when the config file is modified.
- * Safe for PostCSS watch mode — avoids unnecessary re-instantiation.
- */
+// Cache to prevent re-reading/re-parsing unchanged files during HMR
+const _fileCache = new Map<string, FileCacheEntry>();
+
 function getProcessor(configFile?: string): Processor {
   if (configFile && existsSync(configFile)) {
     const mtime = statSync(configFile).mtimeMs;
@@ -44,14 +49,20 @@ function getProcessor(configFile?: string): Processor {
 
     if (_processor === null || !isSameFile || !isUnchanged) {
       const resolved = _require.resolve(configFile);
-      // Bust require cache so watch mode always picks up config edits
       delete _require.cache[resolved];
-      _processor = new Processor(_require(resolved));
+      
+      try {
+        const config = _require(resolved);
+        _processor = new Processor(config);
+      } catch (e) {
+        console.error('[cloudcss] Error loading configuration:', e);
+        throw e;
+      }
+      
       _lastConfigMtime = mtime;
       _resolvedConfigFile = configFile;
     }
   } else if (_processor === null) {
-    // No config file provided — create a plain default Processor once
     _processor = new Processor();
   }
 
@@ -60,94 +71,114 @@ function getProcessor(configFile?: string): Processor {
 
 // ─── Plugin ───────────────────────────────────────────────────────────────────
 
-export default function stormcssPlugin(options: StormCSSOptions = {}): Plugin {
+export default function cloudcssPlugin(options: cloudCSSOptions = {}): Plugin {
   const configFile = options.config ? resolve(options.config) : undefined;
 
   return {
-    postcssPlugin: 'stormcss',
+    postcssPlugin: 'cloudcss',
 
     async AtRule(atRule: AtRule, { result }) {
-      if (atRule.name !== 'stormcss') return;
+      if (atRule.name !== 'cloudcss') return;
 
       const processor = getProcessor(configFile);
-      const config = processor.allConfig as StormCSSConfig;
+      const config = processor.allConfig as cloudCSSConfig;
+      const parent = result.opts.from;
 
-      // ── Register config file as a PostCSS/webpack dependency ──────────────
-      // Done here (not in Once) so _resolvedConfigFile is guaranteed to be set
+      // Helper to safely register dependencies and bypass Turbopack's bridge bugs
+      const registerDependency = (msg: Record<string, any>) => {
+        // Only append parent if it is strictly defined
+        if (parent) msg.parent = parent;
+        result.messages.push(msg as any);
+      };
+
+      // ── Register config file as a dependency ──────────────────────────────
       if (_resolvedConfigFile) {
-        result.messages.push({
+        registerDependency({
           type: 'dependency',
-          plugin: 'stormcss',
+          plugin: 'cloudcss',
           file: path.normalize(_resolvedConfigFile),
-          parent: result.opts.from,
         });
       }
 
       // ── Resolve file list ──────────────────────────────────────────────────
       const patterns = config.extract?.include ?? ['src/**/*.{js,ts,jsx,tsx}'];
       const exclude  = config.extract?.exclude ?? ['node_modules', '.git', '.next'];
+      const cwd = configFile ? dirname(configFile) : process.cwd();
 
       const files = globArray(
-        [...patterns, ...exclude.map((i) => `!${i}`)]
+        [...patterns, ...exclude.map((i) => `!${i}`)],
+        { cwd }
       )
-        .map((f) => resolve(f))   // normalise to absolute paths
-        .filter(existsSync);      // single filter pass — no redundant checks
+        .map((f) => resolve(f))
+        .filter(existsSync);
 
-      console.log(
-        `[stormcss] ${new Date().toLocaleTimeString()} — scanning ${files.length} file(s)`
-      );
-
-      // ── Register files + parent dirs as HMR dependencies ──────────────────
+      // ── Register files + directories as HMR dependencies ──────────────────
       const watchedDirs = new Set<string>();
 
       for (const file of files) {
-        result.messages.push({
+        registerDependency({
           type: 'dependency',
-          plugin: 'stormcss',
+          plugin: 'cloudcss',
           file: path.normalize(file),
-          parent: result.opts.from,
         });
         watchedDirs.add(dirname(file));
       }
 
-      // Watching directories lets PostCSS/webpack detect newly created files
       for (const dir of watchedDirs) {
-        result.messages.push({
-          type: 'context-dependency',
-          plugin: 'stormcss',
-          file: path.normalize(dir),
-          parent: result.opts.from,
+        registerDependency({
+          type: 'dir-dependency',
+          plugin: 'cloudcss',
+          dir: path.normalize(dir),  // Standard PostCSS expectation
+          file: path.normalize(dir), // 🚨 THE FIX: Satisfies Turbopack's generic buggy bridge
+          glob: '**/*',              // Safe fallback for other bundlers
         });
       }
 
-      // ── Parse files in parallel ────────────────────────────────────────────
+      // ── Parse files in parallel (with caching) ───────────────────────────
       const styleSheet = new StyleSheet();
 
       const settled = await Promise.allSettled(
         files.map(async (file) => {
+          const stats = await fsPromises.stat(file);
+          const mtime = stats.mtimeMs;
+          const cached = _fileCache.get(file);
+
+          if (cached && cached.mtime === mtime) {
+            return cached;
+          }
+
           const content = await fsPromises.readFile(file, 'utf8');
           const classes  = new HTMLParser(content)
             .parseClasses()
             .map((i: { result: string }) => i.result);
 
-          return {
-            content,
-            utilityStyleSheet: processor.interpret(classes.join(' ')).styleSheet,
-          };
+          const utilityStyleSheet = processor.interpret(classes.join(' ')).styleSheet;
+          
+          const cacheEntry: FileCacheEntry = { mtime, content, utilityStyleSheet };
+          _fileCache.set(file, cacheEntry);
+          
+          return cacheEntry;
         })
       );
 
+      // Cache cleanup: Remove files that no longer exist
+      const currentFilesSet = new Set(files);
+      for (const cachedFilePath of _fileCache.keys()) {
+        if (!currentFilesSet.has(cachedFilePath)) {
+          _fileCache.delete(cachedFilePath);
+        }
+      }
+
+      // ── Compile Styles ─────────────────────────────────────────────────────
       for (let i = 0; i < settled.length; i++) {
         const item = settled[i];
 
         if (item.status === 'rejected') {
-          // Warn and continue — one bad file must never abort the whole build
-          console.warn(`[stormcss] Skipping "${files[i]}":`, item.reason);
+          console.warn(`[cloudcss] Warning: Skipping "${files[i]}" due to error:`, item.reason);
           continue;
         }
 
         const { content, utilityStyleSheet } = item.value;
-
         styleSheet.extend(utilityStyleSheet);
 
         if (config.preflight) {
@@ -157,11 +188,9 @@ export default function stormcssPlugin(options: StormCSSOptions = {}): Plugin {
 
       // ── Emit ───────────────────────────────────────────────────────────────
       const css = styleSheet.sort().combine().build(options.minify);
-
-      // replaceWith requires a PostCSS node tree, not a raw string
       atRule.replaceWith(postcss.parse(css) as Root);
     },
   };
 }
 
-stormcssPlugin.postcss = true;
+cloudcssPlugin.postcss = true;

@@ -6,7 +6,7 @@ import { CSSParser } from '../../src/utils/parser';
 import type { colorObject } from '../../src/interfaces';
 import aspectRatio from '../../src/plugin/aspect-ratio';
 
-const configPath = resolve('./test/assets/windi.config.js');
+const configPath = resolve('./test/assets/cloud.config.cjs');
 const userConfig = require(configPath);
 
 describe('Config', () => {
@@ -116,12 +116,12 @@ describe('Config', () => {
   });
 
   it('does not generate non-prefixed classes when using prefix', () => {
-    const processor = new Processor({ prefix: 'windi-' });
+    const processor = new Processor({ prefix: 'cloud-' });
     processor.loadPlugin(aspectRatio);
-    const classes = 'items-center justify-center flex-wrap block flex windi-block windi-py-3 py-3 container aspect-none';
+    const classes = 'items-center justify-center flex-wrap block flex cloud-block cloud-py-3 py-3 container aspect-none';
     // it should not compile the standard classes (items-center, justify-center) because they are not prefixed
     expect(processor.interpret(classes).styleSheet.build()).toBe(
-      '.windi-block {\n  display: block;\n}\n.windi-py-3 {\n  padding-top: 0.75rem;\n  padding-bottom: 0.75rem;\n}'
+      '.cloud-block {\n  display: block;\n}\n.cloud-py-3 {\n  padding-top: 0.75rem;\n  padding-bottom: 0.75rem;\n}'
     );
   });
 
@@ -278,7 +278,7 @@ describe('Config', () => {
 
   it('allows to use prefix with shortcuts', () => {
     const processor = new Processor({
-      prefix: 'windi-',
+      prefix: 'cloud-',
       shortcuts: {
         'btn': 'py-2 px-4 font-semibold rounded-lg shadow-md',
         'btn-green': {
@@ -286,7 +286,7 @@ describe('Config', () => {
         },
       },
     });
-    const result = processor.interpret('windi-btn windi-btn-green');
+    const result = processor.interpret('cloud-btn cloud-btn-green');
     expect(result.ignored.length).toEqual(0);
     expect(result.styleSheet.build()).toMatchSnapshot('shortcuts with prefix');
   });

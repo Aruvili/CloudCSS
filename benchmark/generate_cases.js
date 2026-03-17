@@ -49,7 +49,7 @@ const html = `
 </html>
 `;
 
-const benchmarkDir = 'd:/Projects/CSS/windicss/benchmark';
+const benchmarkDir = 'CSS/css/benchmark';
 if (!fs.existsSync(benchmarkDir)) {
     fs.mkdirSync(benchmarkDir, { recursive: true });
 }

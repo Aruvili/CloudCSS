@@ -8,7 +8,7 @@
     "chokidar-cli": "^3.0.0"
   },
   "scripts": {
-    "build": "node ../dist/cli/index.js -to windi.css --dev -f windi.config.js --style",
+    "build": "node ../dist/cli/index.js -to cloud.css --dev -f cloud.config.js --style",
     "dev": "chokidar -d 1000 '../dist/**/*' -c \"npm run build\""
   }
 }

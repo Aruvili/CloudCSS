@@ -12,11 +12,11 @@ export default function HomePage() {
 
         {/* Scaled Logos */}
         <div className="flex items-center gap-10 mb-12 group">
-          {/* StormCSS Logo */}
+          {/* cloudCSS Logo */}
           <div className="relative cursor-pointer">
             <div className="absolute -inset-8 bg-[#b6f09c]/30 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
             <div className="w-32 h-32 rounded-[2.5rem] bg-white/5 border border-white/10 flex items-center justify-center transform group-hover:scale-110 group-hover:-rotate-12 transition-all duration-1000 relative z-10 select-none overflow-hidden">
-              <img src="/stormcss.svg" alt="StormCSS Logo" className="w-24 h-24 object-contain" />
+              <img src="/cloudcss.svg" alt="cloudCSS Logo" className="w-24 h-24 object-contain" />
             </div>
           </div>
 
@@ -35,12 +35,12 @@ export default function HomePage() {
 
         {/* Scaled Brand Typography */}
         <h1 className="text-8xl font-black italic tracking-tighter uppercase leading-[0.8] mb-8 select-none">
-        Storm<span className="text-[#b6f09c] drop-shadow-[0_0_60px_rgba(182,240,156,0.6)] hover:text-white transition-colors duration-500">CSS</span>
+        cloud<span className="text-[#b6f09c] drop-shadow-[0_0_60px_rgba(182,240,156,0.6)] hover:text-white transition-colors duration-500">CSS</span>
         </h1>
 
         <p className="text-2xl text-[#a1a1aa] font-bold tracking-tight max-w-2xl leading-tight opacity-80 mb-12">
           The high-performance UI engine for <span className="text-white border-b-4 border-[#b6f09c]">Next.js</span>.
-          Utility-first styling perfected by <span className="text-white">StormCSS</span>.
+          Utility-first styling perfected by <span className="text-white">cloudCSS</span>.
         </p>
 
         {/* Scaled Starter Actions */}
@@ -55,7 +55,7 @@ export default function HomePage() {
 
         {/* Tagline */}
         <div className="mt-24 text-[#444] text-[10px] font-black uppercase tracking-[0.5em] select-none">
-          Zero-Runtime • Infinite Style • StormCSS
+          Zero-Runtime • Infinite Style • cloudCSS
         </div>
       </main>
     </div>

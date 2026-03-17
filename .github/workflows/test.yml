@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [18.x, 20.x, 22.x]
 
     steps:
       - uses: actions/checkout@v3
@@ -30,12 +30,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Lint code
-        run: pnpm lint
+        run: pnpm run lint
       - name: Build package
-        run: pnpm build
-      - name: Test types
-        run: pnpm test:dts
+        run: pnpm run build
       - name: Run tests and generate coverage report
-        run: pnpm coverage
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+        run: pnpm run test

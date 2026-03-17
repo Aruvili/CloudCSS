@@ -3,7 +3,7 @@ import { Lexer, Parser } from '../../src/lang';
 describe('Parser', () => {
   it('simple syntax', () => {
     const code = `
-      @import 'typo.css', 'style.css', 'test.windi';
+      @import 'typo.css', 'style.css', 'test.cloud';
 
       @load 'module1', 'module2', 'module3';
       @load { export1 } from "module-name";

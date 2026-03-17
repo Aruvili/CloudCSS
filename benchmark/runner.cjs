@@ -5,7 +5,7 @@ const path = require('path');
 const BENCHMARK_DIR = path.resolve(__dirname);
 const ROOT_DIR = path.resolve(BENCHMARK_DIR, '..');
 const TAILWIND_CONFIG = path.join(BENCHMARK_DIR, 'tailwind.config.js');
-const STORM_CONFIG = path.join(BENCHMARK_DIR, 'stormcss.config.ts');
+const cloud_CONFIG = path.join(BENCHMARK_DIR, 'cloudcss.config.ts');
 const INPUT_HTML = path.join(BENCHMARK_DIR, 'large.html');
 
 function runBenchmark(name, command) {
@@ -36,7 +36,7 @@ function runBenchmark(name, command) {
 }
 
 async function main() {
-  console.log('Building StormCSS first...');
+  console.log('Building cloudCSS first...');
   execSync('npm run build', { stdio: 'inherit', cwd: ROOT_DIR });
 
   // Tailwind Benchmark
@@ -52,18 +52,18 @@ async function main() {
 
   const twResult = runBenchmark('Tailwind', tailwindCmd);
 
-  // StormCSS Benchmark
+  // cloudCSS Benchmark
   // Use the local CLI
-  const stormCmd = `node dist/cli/index.cjs benchmark/large.html -o ${path.join(BENCHMARK_DIR, 'stormcss.css')} --minify`;
+  const cloudCmd = `node dist/cli/index.cjs benchmark/large.html -o ${path.join(BENCHMARK_DIR, 'cloudcss.css')} --minify`;
 
 
 
-  const stormResult = runBenchmark('StormCSS', stormCmd);
+  const cloudResult = runBenchmark('cloudCSS', cloudCmd);
 
-  if (twResult && stormResult) {
+  if (twResult && cloudResult) {
     console.log('\n--- Final Comparison ---');
-    console.log(`Time: StormCSS is ${(twResult.durationMs / stormResult.durationMs).toFixed(2)}x faster`);
-    console.log(`Size: StormCSS is ${(twResult.sizeKb / stormResult.sizeKb).toFixed(2)}x smaller (CSS content only)`);
+    console.log(`Time: cloudCSS is ${(twResult.durationMs / cloudResult.durationMs).toFixed(2)}x faster`);
+    console.log(`Size: cloudCSS is ${(twResult.sizeKb / cloudResult.sizeKb).toFixed(2)}x smaller (CSS content only)`);
   }
 }
 

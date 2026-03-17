@@ -2,7 +2,7 @@ import { Processor } from '../../src/lib';
 import { resolve } from 'path';
 import { pseudoClassNames } from '../../src/config/order';
 
-const processor = new Processor(require(resolve('./test/assets/windi.plugin.config.js')));
+const processor = new Processor(require(resolve('./test/assets/cloud.plugin.config.cjs')));
 
 describe('Resolve Tests', () => {
   it('resolve variants', () => {

@@ -479,7 +479,7 @@ export class Parser {
   }
 
   import_statement(): Import {
-    // @import 'a.windi', 'b.windi', 'c.css'
+    // @import 'a.cloud', 'b.cloud', 'c.css'
     this.eat(TokenType.IMPORT);
     const urls:string[] = [];
     while (this.current_token.type === TokenType.STRING) {

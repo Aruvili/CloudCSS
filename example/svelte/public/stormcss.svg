@@ -1,0 +1,18 @@
+<svg width="140" height="100" viewBox="18 52 140 92" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Cloud bumps — dark green -->
+  <circle cx="70" cy="96" r="23" fill="#1a3d0f"/>
+  <circle cx="102" cy="82" r="29" fill="#1a3d0f"/>
+  <circle cx="132" cy="94" r="21" fill="#1a3d0f"/>
+  <!-- Cloud base body -->
+  <rect x="50" y="100" width="103" height="40" rx="20" fill="#1a3d0f"/>
+
+  <!-- Lightning bolt — primary #b6f09c -->
+  <path d="M116 54 L97 102 L114 102 L88 138 L76 138 L94 102 L80 102 Z" fill="#b6f09c"/>
+
+  <!-- Wind motion lines — mid green -->
+  <line x1="24" y1="93" x2="48" y2="93" stroke="#b6f09c" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>
+  <line x1="21" y1="105" x2="47" y2="105" stroke="#b6f09c" stroke-width="2" stroke-linecap="round" opacity="0.38"/>
+  <line x1="25" y1="117" x2="46" y2="117" stroke="#b6f09c" stroke-width="1.5" stroke-linecap="round" opacity="0.22"/>
+
+</svg>

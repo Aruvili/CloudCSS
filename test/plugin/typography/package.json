@@ -17,6 +17,6 @@
     "vite-plugin-md": "^0.11.6",
     "vite-plugin-windicss": "^1.5.4",
     "vue-tsc": "^0.29.8",
-    "windicss": "file:../../../dist"
+    "cloudcss": "file:../../../dist"
   }
 }

@@ -1,15 +1,15 @@
 {
-  "name": "stormcss",
+  "name": "cloudcss",
   "version": "1.0.0",
   "packageManager": "pnpm@10.32.1",
-  "description": "StormCSS - The revived next generation utility-first CSS framework.",
+  "description": "cloudCSS - The revived next generation utility-first CSS framework.",
   "type": "module",
   "main": "index.js",
   "module": "index.mjs",
   "types": "index.d.ts",
   "bin": {
-    "stormcss": "cli/index.cjs",
-    "storm": "cli/index.cjs"
+    "cloudcss": "dist/cli/index.cjs",
+    "cloud": "dist/cli/index.cjs"
   },
   "scripts": {
     "dev": "rollup -c -w",
@@ -98,10 +98,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Aruvili/stormcss.git"
+    "url": "https://github.com/Aruvili/cloudcss.git"
   },
   "keywords": [
-    "stormcss",
+    "cloudcss",
     "windicss",
     "tailwindcss",
     "css",
@@ -112,7 +112,7 @@
   },
   "author": "Aruvili",
   "license": "MIT",
-  "homepage": "https://github.com/Aruvili/stormcss",
+  "homepage": "https://github.com/Aruvili/cloudcss",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.2",
     "@rollup/plugin-json": "^6.1.0",

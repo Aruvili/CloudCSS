@@ -154,7 +154,7 @@ __interpret__("bg-red-500 text-white sm:bg-gray-200");
 __attributify__("bg", "red-500 opacity-50 sm:red-200");
 __attributify__("sm:text", "red-500 opacity-30");
 
-        import { eval, rgba, get, set } from 'windi/lang';
+        import { eval, rgba, get, set } from 'cloud/lang';
 
         const a = get('width');
         set('width', eval('4px'));
