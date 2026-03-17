@@ -1,7 +1,7 @@
 # cloudCSS ⚡️
 
 <p align="center">
-  <img src="assets/logo.svg" alt="cloudCSS Logo" width="600" />
+  <img src="assets/logo.svg" alt="cloudCSS Logo" width="600"/>
 </p>
 
 <p align="center">
