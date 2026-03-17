@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "packageManager": "pnpm@10.32.1",
   "description": "cloudCSS - The revived next generation utility-first CSS framework.",
-  "type": "module",
   "main": "index.js",
   "module": "index.mjs",
   "types": "index.d.ts",
