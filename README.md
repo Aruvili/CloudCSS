@@ -1,4 +1,4 @@
-# cloudCSS ⚡️
+# CloudCSS ⚡️
 
 <p align="center">
   <img src="assets/CloudCSS_logo.svg" alt="cloudCSS Logo" width="600"/>
@@ -16,19 +16,19 @@
 
 ---
 
-## Why cloudCSS? 🤔
+## Why CloudCSS? 🤔
 
 The original motivation behind on-demand utility CSS was best captured by [@voorjaar](https://github.com/voorjaar), the creator of Windi CSS:
 
 > When my project became larger and there were about dozens of components, the initial compilation time reached 3s, and hot updates took more than 1s with Tailwind CSS.
 
-cloudCSS carries that vision forward. By scanning your HTML and CSS and generating utilities on demand, cloudCSS delivers **blazing fast load times**, near-instant HMR in development, and requires **zero purging** in production — now actively maintained and evolving.
+cloudCSS carries that vision forward. By scanning your HTML and CSS and generating utilities on demand, CloudCSS delivers **blazing fast load times**, near-instant HMR in development, and requires **zero purging** in production — now actively maintained and evolving.
 
 ---
 
 ## Installation
 
-Install cloudCSS once — all framework integrations are included:
+Install CloudCSS once — all framework integrations are included:
 
 ```bash
 npm install cloudcss
@@ -48,7 +48,7 @@ Community plugins coming soon. Want to build one? Open a discussion!
 
 ## Contributing
 
-cloudCSS is community-driven and contributions are what keep it alive. Please read our [Contributing Guide](CONTRIBUTING.md) before submitting a pull request.
+CloudCSS is community-driven and contributions are what keep it alive. Please read our [Contributing Guide](CONTRIBUTING.md) before submitting a pull request.
 
 ---
 
@@ -60,7 +60,7 @@ Have questions or ideas? Use [GitHub Discussions](https://github.com/Aruvili/clo
 
 ## Credits
 
-cloudCSS is a community revival of **[Windi CSS](https://github.com/windicss/windicss)**, which was sunset in 2023. Full credit goes to [@voorjaar](https://github.com/voorjaar) and the original WindiCSS team — their groundbreaking work on on-demand utility generation is the foundation this project stands on.
+CloudCSS is a community revival of **[Windi CSS](https://github.com/windicss/windicss)**, which was sunset in 2023. Full credit goes to [@voorjaar](https://github.com/voorjaar) and the original WindiCSS team — their groundbreaking work on on-demand utility generation is the foundation this project stands on.
 
 ---
 
