@@ -1,6 +1,6 @@
 {
   "name": "@aruvili/cloudcss",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "packageManager": "pnpm@10.32.1",
   "description": "cloudCSS - The revived next generation utility-first CSS framework.",
   "main": "index.js",
